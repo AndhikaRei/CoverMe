@@ -86,9 +86,15 @@ def add_new_user(db,cursor,DB_NAME,val):
         log_id = cursor.lastrowid
         print("Menambahkan User dengan id {}".format(log_id))
         return [1,"Menambahkan User dengan id"+str(log_id)]
+    # Ada duplicate
+    except mysql.connector.IntegrityError as err:    
+        # print(err.msg)
+        return [-1,err.msg]
+    # Error lainnya
     except mysql.connector.Error as err:
-        print(err.msg)
+        # print(err.msg)
         return [0,err.msg]
+
 
 def get_user_id(cursor,DB_NAME, val):
     # Mendapatkan id user
@@ -104,7 +110,7 @@ def get_user_id(cursor,DB_NAME, val):
         result = cursor.fetchall()
         
         if len(result) == 0:
-            return [2, "username tidak ditemukan"]
+            return [-2, "username tidak ditemukan"]
         
         user_password = result[0][1]
         user_id = result[0][0]
@@ -112,7 +118,7 @@ def get_user_id(cursor,DB_NAME, val):
         if check_password(password, user_password):
            return [1, user_id]
         else:
-            return [3,"password tidak cocok"]
+            return [-1,"password tidak cocok"]
     except mysql.connector.Error as err:
         print(err.msg)
         return [0,err.msg]
@@ -158,7 +164,3 @@ def main():
     
     # check_password(password,hashed)
     
-    
-
-
-main()
