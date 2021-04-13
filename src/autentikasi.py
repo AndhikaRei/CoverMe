@@ -47,9 +47,9 @@ def create_table_klien(cursor,DB_NAME):
     Table_Name = "klien"
     Table_Syntax =(
         "CREATE TABLE `klien` ("
-        " `ID_Pengguna` int AUTO_INCREMENT,"
+        " `ID_Pengguna` int,"
         " `Riwayat` int DEFAULT 0,"
-        " `Status_Akun` varchar(25),"
+        " `Status_Akun` varchar(25) DEFAULT 'Biasa',"
         " PRIMARY KEY (`ID_Pengguna`),"
         " FOREIGN KEY (`ID_Pengguna`) REFERENCES user(`ID_Pengguna`)"
         ")"
@@ -73,17 +73,21 @@ def add_new_user(db,cursor,DB_NAME,val):
     # val : tupple nama_pengguna, username, password, email, alamat, tanggal_lahir, nomor_telepon
     # Note, password belum diencrypsi
     # Return pesan sukses/error beserta kodenya
-    temp = list(val)
-    temp[2] = encrypt_password(temp[2])
-    val = tuple(temp)
+    val[2] = encrypt_password(val[2])
     
     cursor.execute("USE {}".format(DB_NAME))
     try:
-        sql = ("INSERT INTO user(nama_pengguna, username, password, email, alamat, tanggal_lahir, nomor_telepon)"
+        sql_addUser = ("INSERT INTO user(nama_pengguna, username, password, email, alamat, tanggal_lahir, nomor_telepon)"
                "VALUES (%s, %s, %s, %s, %s, %s, %s);")
-        cursor.execute(sql, val)
-        db.commit()
+        cursor.execute(sql_addUser, val)
+        
         log_id = cursor.lastrowid
+        sql_addKlien = ("INSERT INTO klien(ID_Pengguna)"
+               "VALUES (%s);")
+        cursor.execute(sql_addKlien, [log_id])
+        
+        db.commit()
+        
         print("Menambahkan User dengan id {}".format(log_id))
         return [1,"Menambahkan User dengan id"+str(log_id)]
     # Ada duplicate
@@ -139,24 +143,24 @@ def main():
     cursor = db.cursor()
     
     # Drop database
-    # cursor.execute("DROP DATABASE Cover_Me")
+    cursor.execute("DROP DATABASE Cover_Me")
 
     # Membuat database "Cover_Me"
-    # create_database(cursor,DB_NAME)
+    create_database(cursor,DB_NAME)
 
     # Membuat tabel user
-    # create_table_user(cursor,DB_NAME)
+    create_table_user(cursor,DB_NAME)
 
     # Membuat tabel klien
-    # create_table_klien(cursor,DB_NAME)
+    create_table_klien(cursor,DB_NAME)
     # password = "Hai"
     
     # Menambah user baru
     # password = encrypt_password("4200")
-    val = ("Azhar", "azhar", "4200", "Gmail@azhar", "Bandung", "2001-04-20", "08822313412")
-    va1 = ["azhar", "4200"]
-    result = get_user_id(cursor, DB_NAME, va1)
-    print(result)
+    # val = ("Azhar", "azhar", "4200", "Gmail@azhar", "Bandung", "2001-04-20", "08822313412")
+    # va1 = ["azhar", "4200"]
+    # result = get_user_id(cursor, DB_NAME, va1)
+    # print(result)
     # add_new_user(db, cursor, DB_NAME, val)
     
     # hashed = encrypt_password(password)
@@ -164,3 +168,4 @@ def main():
     
     # check_password(password,hashed)
     
+# main()

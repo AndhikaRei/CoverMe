@@ -357,7 +357,7 @@ class Ui_LoginWindow(object):
             self.showAlert("Username tidak ditemukan")
             return
         if result[0] == 0:
-            print(result[0])
+            print(result[1])
             self.showAlert("General Error")
             return
         
@@ -392,7 +392,7 @@ class Ui_LoginWindow(object):
             return
         
         if result[0] == 0:
-            print(result[0])
+            print(result[1])
             self.showAlert("General Error")
             return
         
