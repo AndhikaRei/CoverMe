@@ -64,7 +64,7 @@ def get_rs_klien(cursor,DB_NAME):
     # Return pesan sukses/error beserta kodenya
     cursor.execute("USE {}".format(DB_NAME))
     try:
-        sql = ("SELECT Nama_RS,Harga_RS,Kapasitas FROM rumah_sakit WHERE Jumlah_Pasien < Kapasitas")
+        sql = ("SELECT Nama_RS,Harga_RS,Kapasitas,Jumlah_Pasien FROM rumah_sakit WHERE Jumlah_Pasien < Kapasitas")
         cursor.execute(sql)
         result = cursor.fetchall()
         return [1,result]
@@ -98,6 +98,18 @@ def kurangi_pasien(db,cursor,DB_NAME,nama_rs):
         cursor.execute(sql,val)
         db.commit()
         return [1,"Pasien berhasil dikurangi"]
+
+    except mysql.connector.Error as err:
+        print(err.msg)
+        return [0,err.msg]
+
+def get_idRS(db,cursor,DB_Name,nama_rs):
+    try:
+        sql = ("SELECT ID_RS FROM rumah_sakit WHERE Nama_RS = %s")
+        val = (nama_rs,)
+        cursor.execute(sql,val)
+        res = cursor.fetchone()
+        return [1,res[0]]
 
     except mysql.connector.Error as err:
         print(err.msg)
