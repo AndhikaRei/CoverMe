@@ -365,7 +365,7 @@ class Ui_LoginWindow(object):
             if (Role =="Klien"):
                 self.toKlienHome(ID_Pengguna)
             else :
-                self.toAdminHome(ID_Pengguna)
+                self.to_Admin_Home(ID_Pengguna)
             return
         if result[0] == -1:
             self.showAlert("Password salah")
@@ -419,14 +419,16 @@ class Ui_LoginWindow(object):
             self.showAlert("General Error")
             return
         
-    def toAdminHome(self,ID_Pengguna):
-        from Admin_RS import Ui_DataRSWindow
+    def to_Admin_Home(self, ID_Pengguna):
+        # Navigate to update laporan page
+        from Admin_Home import Ui_AdminHomeWindow
         self.window = QtWidgets.QMainWindow()
-        self.ui =Ui_DataRSWindow()
-        self.ui.setupUi(self.window,ID_Pengguna)
+        self.ui = Ui_AdminHomeWindow()
+        self.ui.setupUi(self.window, ID_Pengguna)
         self.window.show()
         self.LoginWindow.close()
-        print("To admin")
+        print("Admin_Home")
+        return
     
     def toKlienHome(self,ID_Pengguna):
         from Klien_PesanRS import Ui_PesanRSWindow

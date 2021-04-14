@@ -11,6 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from update_laporan import *
 from Admin_RS import *
+from Admin_Home import *
 from autentikasi import *
 
 class Ui_UpdateLaporanWindow(object):
@@ -295,6 +296,7 @@ class Ui_UpdateLaporanWindow(object):
                 self.button_simpan_meninggal.clicked.connect(self.simpanPasienMeninggal)
                 self.Logout.clicked.connect(self.logout)
                 self.RumahSakit.clicked.connect(self.to_Data_RS)
+                self.Home.clicked.connect(self.to_Admin_Home)
 
                 # Set Initial Value
                 self.refreshAllValue()
@@ -425,6 +427,18 @@ class Ui_UpdateLaporanWindow(object):
                 self.UpdateLaporanWindow.close()
                 print("Data RS ")
                 return
+
+        def to_Admin_Home(self):
+                # Navigate to update laporan page
+                from Admin_Home import Ui_AdminHomeWindow
+                self.window = QtWidgets.QMainWindow()
+                self.ui = Ui_AdminHomeWindow()
+                self.ui.setupUi(self.window, self.ID_Pengguna)
+                self.window.show()
+                self.UpdateLaporanWindow.close()
+                print("Admin_Home ")
+                return
+
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)

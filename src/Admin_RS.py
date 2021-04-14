@@ -13,6 +13,7 @@ from rumah_sakit import *
 import mysql.connector
 from autentikasi import *
 from ui_login import *
+from Admin_Home import *
 
 
 class Ui_DataRSWindow(object):
@@ -218,6 +219,8 @@ class Ui_DataRSWindow(object):
 		# Ketika tombol tambah data diklik
 		self.button_tambah.clicked.connect(self.submitData)
 		self.Laporan_Harian.clicked.connect(self.to_update_laporan)
+		self.Home.clicked.connect(self.to_Admin_Home)
+
 
 		# Load Table dari database
 		self.loadTable()
@@ -314,6 +317,17 @@ class Ui_DataRSWindow(object):
 		print("Update Laporan")
 		return
 	
+	def to_Admin_Home(self):
+        # Navigate to update laporan page
+		from Admin_Home import Ui_AdminHomeWindow
+		self.window = QtWidgets.QMainWindow()
+		self.ui = Ui_AdminHomeWindow()
+		self.ui.setupUi(self.window, self.ID_Pengguna)
+		self.window.show()
+		self.DataRSWindow.close()
+		print("Admin_Home ")
+		return
+
 	def retranslateUi(self, DataRSWindow):
 		# Menulis ulang text di GUI
 		_translate = QtCore.QCoreApplication.translate
