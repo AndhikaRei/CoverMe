@@ -128,6 +128,7 @@ def get_role(cursor,DB_NAME,ID_Pengguna):
     except mysql.connector.Error as err:
         print(err.msg)
         return [0,err.msg]
+    
 def get_user_id(cursor,DB_NAME, val):
     # Mendapatkan id user
     # val : tuple berisi username dan password
@@ -154,6 +155,7 @@ def get_user_id(cursor,DB_NAME, val):
     except mysql.connector.Error as err:
         print(err.msg)
         return [0,err.msg]
+
 
 
 # Main Program
