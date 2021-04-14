@@ -229,9 +229,10 @@ class Ui_DataRSWindow(object):
 	def setupSql(self):
 		# Melakukan setup koneksi SQL
 		config = {
-			'user': 'root',
-			'password': '',
-			'host': 'localhost'
+			"user": "root",
+			"password": "root",
+			"host": "localhost",
+			"port" : "3307"
 		}
 		self.DB_NAME = 'Cover_Me'
 		self.db = mysql.connector.connect(**config)

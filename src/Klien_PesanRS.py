@@ -172,9 +172,10 @@ class Ui_PesanRSWindow(object):
 	def setupSQL(self):
 		# Melakukan setup koneksi ke database
 		config = {
-			'user': 'root',
-			'password': '',
-			'host': 'localhost'
+			"user": "root",
+			"password": "root",
+			"host": "localhost",
+			"port" : "3307"
 		}
 		self.DB_NAME = 'Cover_Me'
 		self.db = mysql.connector.connect(**config)
