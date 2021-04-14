@@ -11,12 +11,15 @@ import mysql.connector
 import re
 from PyQt5 import QtCore, QtGui, QtWidgets
 from autentikasi import *
+from Klien_PesanRS import *
+from Admin_RS import *
 
 
 class Ui_LoginWindow(object):
     def setupUi(self, LoginWindow):
-        LoginWindow.setObjectName("LoginWindow")
-        LoginWindow.resize(974, 621)
+        self.LoginWindow = LoginWindow
+        self.LoginWindow.setObjectName("LoginWindow")
+        self.LoginWindow.resize(974, 621)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -314,12 +317,18 @@ class Ui_LoginWindow(object):
         msg.setIcon(QtWidgets.QMessageBox.Critical)
         msg.setText(err)
         x = msg.exec_()
+
+    def showSucc(self,succ):
+        msg = QtWidgets.QMessageBox()
+        msg.setIcon(QtWidgets.QMessageBox.Information)
+        msg.setText(succ)
+        x = msg.exec_()
     
     def setupSQL(self):
         # Configurasi
         config = {
             "user": "root",
-            "password": "root",
+            "password": "",
             "host": "localhost"
         }
         # Nama database
@@ -348,7 +357,14 @@ class Ui_LoginWindow(object):
         result = get_user_id(self.cursor,self.DB_NAME, val)
         
         if result[0] == 1:
-            self.showAlert("Login berhasil")
+            self.showSucc("Login berhasil")
+            ID_Pengguna = result[1]
+            Role = get_role(self.cursor,self.DB_NAME, ID_Pengguna)[1]
+            print(Role)
+            if (Role =="Klien"):
+                self.toKlienHome(ID_Pengguna)
+            else :
+                self.toAdminHome(ID_Pengguna)
             return
         if result[0] == -1:
             self.showAlert("Password salah")
@@ -383,8 +399,14 @@ class Ui_LoginWindow(object):
         
         result = add_new_user(self.db, self.cursor, self.DB_NAME, val)
         
-        if result[1] == 1:
-            self.showAlert("Registrasi berhasil, silahkan login")
+        if result[0] == 1:
+            self.showSucc("Registrasi berhasil, silahkan login")
+            self.box_nama.setText("")
+            self.box_username_2.setText("")
+            self.box_password_2.setText("")
+            self.box_alamat.setText("")
+            self.box_telepon.setText("")   
+            self.box_email.setText("")
             return
         
         if result[0] == -1:
@@ -396,10 +418,24 @@ class Ui_LoginWindow(object):
             self.showAlert("General Error")
             return
         
-        
-        
+    def toAdminHome(self,ID_Pengguna):
+        from Admin_RS import Ui_DataRSWindow
+        self.window = QtWidgets.QMainWindow()
+        self.ui =Ui_DataRSWindow()
+        self.ui.setupUi(self.window,ID_Pengguna)
+        self.window.show()
+        self.LoginWindow.close()
+        print("To admin")
     
-
+    def toKlienHome(self,ID_Pengguna):
+        from Klien_PesanRS import Ui_PesanRSWindow
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_PesanRSWindow()
+        self.ui.setupUi(self.window,ID_Pengguna)
+        self.window.show()
+        self.LoginWindow.close()
+        print("To klien")
+        
 
 if __name__ == "__main__":
     import sys

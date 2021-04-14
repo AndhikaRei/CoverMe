@@ -99,7 +99,35 @@ def add_new_user(db,cursor,DB_NAME,val):
         # print(err.msg)
         return [0,err.msg]
 
+def get_username(cursor,DB_NAME,ID_Pengguna):
+    # Mendapatkan username lewat ID_Pengguna
+    cursor.execute("USE {}".format(DB_NAME))
+    try:
+        sql = ("SELECT Username from user where ID_Pengguna = %s")
+        val = (ID_Pengguna,)
+        cursor.execute(sql, val)
+        res = cursor.fetchone()
+        if (len(res) > 0):
+            print("Berhasil mendapatkan username")
+            return [1,res[0]]
+    except mysql.connector.Error as err:
+        print(err.msg)
+        return [0,err.msg]
 
+def get_role(cursor,DB_NAME,ID_Pengguna):
+    # Mendapatkan rolelewat ID_Pengguna
+    cursor.execute("USE {}".format(DB_NAME))
+    try:
+        sql = ("SELECT Role from user where ID_Pengguna = %s")
+        val = (ID_Pengguna,)
+        cursor.execute(sql, val)
+        res = cursor.fetchone()
+        if (len(res) > 0):
+            print("Berhasil mendapatkan Role")
+            return [1,res[0]]
+    except mysql.connector.Error as err:
+        print(err.msg)
+        return [0,err.msg]
 def get_user_id(cursor,DB_NAME, val):
     # Mendapatkan id user
     # val : tuple berisi username dan password
@@ -129,40 +157,40 @@ def get_user_id(cursor,DB_NAME, val):
 
 
 # Main Program
-def main():
-    config = {
-        "user": "root",
-        "password": "root",
-        "host": "localhost"
-    }
+# def main():
+    # config = {
+    #     "user": "root",
+    #     "password": "",
+    #     "host": "localhost"
+    # }
 
-    DB_NAME = "Cover_Me"
-    db = mysql.connector.connect(**config)
+    # DB_NAME = "Cover_Me"
+    # db = mysql.connector.connect(**config)
 
     # Cursor database
-    cursor = db.cursor()
+    # cursor = db.cursor()
     
-    # Drop database
-    cursor.execute("DROP DATABASE Cover_Me")
+    # # Drop database
+    # cursor.execute("DROP DATABASE Cover_Me")
 
-    # Membuat database "Cover_Me"
-    create_database(cursor,DB_NAME)
+    # # Membuat database "Cover_Me"
+    # create_database(cursor,DB_NAME)
 
     # Membuat tabel user
-    create_table_user(cursor,DB_NAME)
+    # create_table_user(cursor,DB_NAME)
 
     # Membuat tabel klien
-    create_table_klien(cursor,DB_NAME)
+    # create_table_klien(cursor,DB_NAME)
     # password = "Hai"
     
     # Menambah user baru
     # password = encrypt_password("4200")
-    # val = ("Azhar", "azhar", "4200", "Gmail@azhar", "Bandung", "2001-04-20", "08822313412")
+    # val = ["Azhar", "azhar", "4200", "Gmail@azhar", "Bandung", "2001-04-20", "08822313412"]
+    # valAdmin = ["Azhar2", "azhar2", "42002", "Gmail@azhar2", "Bandung", "2001-04-20", "08822313412"]
     # va1 = ["azhar", "4200"]
     # result = get_user_id(cursor, DB_NAME, va1)
     # print(result)
-    # add_new_user(db, cursor, DB_NAME, val)
-    
+    # add_new_user(db, cursor, DB_NAME, valAdmin)
     # hashed = encrypt_password(password)
     # print(len(hashed))
     

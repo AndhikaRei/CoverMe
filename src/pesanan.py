@@ -20,7 +20,8 @@ def create_table_transaksi(cursor,DB_NAME):
         " `Tanggal_Pesanan` datetime DEFAULT NOW() ,"
         " `Status_Pesanan` int DEFAULT 0,"
         " PRIMARY KEY (`ID_Pesanan`),"
-        " FOREIGN KEY (`ID_RS`) REFERENCES rumah_sakit(`ID_RS`)"
+        " FOREIGN KEY (`ID_RS`) REFERENCES rumah_sakit(`ID_RS`),"
+        " FOREIGN KEY (`ID_Pengguna`) REFERENCES user(`ID_Pengguna`)"
         ") ENGINE=InnoDB"
     )
     try:
@@ -37,7 +38,7 @@ def add_new_pesanan(db,cursor,DB_NAME,ID_RS,ID_Pengguna):
     # Return pesan sukses/error beserta kodenya
     cursor.execute("USE {}".format(DB_NAME))
     try:
-        sql = ("SELECT * FROM pesanan WHERE Status_Pesanan = 0 AND ID_Pengguna = %s")
+        sql = ("""SELECT * FROM pesanan WHERE (Status_Pesanan = 0 OR Status_Pesanan=1) AND ID_Pengguna = %s""")
         val = (ID_Pengguna,)
         cursor.execute(sql,val)
         result = cursor.fetchall()
@@ -57,7 +58,7 @@ def add_new_pesanan(db,cursor,DB_NAME,ID_RS,ID_Pengguna):
 
 
 def get_pesanan_admin(cursor,DB_NAME):
-    # Mendapatkan rs yang bisa dilihat admin
+    # Mendapatkan pesanan yang bisa dilihat admin
     # Return pesan sukses/error beserta kodenya
     cursor.execute("USE {}".format(DB_NAME))
     try:
@@ -70,7 +71,7 @@ def get_pesanan_admin(cursor,DB_NAME):
         return [0,err.msg]
 
 def get_pesanan_klien(cursor,DB_NAME,ID_Pengguna):
-    # Mendapatkan rs yang bisa dipesan klien
+    # Mendapatkan pesanan klien berdasarkan ID_Pengguna
     # Return pesan sukses/error beserta kodenya
     cursor.execute("USE {}".format(DB_NAME))
     try:
@@ -83,11 +84,6 @@ def get_pesanan_klien(cursor,DB_NAME,ID_Pengguna):
         print(err.msg)
         return [0,err.msg]
 
-def ada_pesanan_berjalan(Listpesanan):
-    for pesanan in Listpesanan:
-        if pesanan[4] ==0:
-            return True
-    return False
 
 # =========================================================================================================
 
@@ -109,8 +105,8 @@ def ada_pesanan_berjalan(Listpesanan):
 
 
 # # Mengisi data pesanan
-# ID_Pengguna = 3
-# ID_RS = 1
+# ID_Pengguna = 1
+# ID_RS = 21
 # new = add_new_pesanan(db,cursor,DB_NAME,ID_RS,ID_Pengguna)
 # print(new)
 
