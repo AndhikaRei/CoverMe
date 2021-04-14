@@ -10,12 +10,16 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from update_laporan import *
+from Admin_RS import *
+from autentikasi import *
 
-class Ui_MainWindow(object):
-        def setupUi(self, MainWindow):
-                MainWindow.setObjectName("MainWindow")
-                MainWindow.resize(900, 600)
-                self.centralwidget = QtWidgets.QWidget(MainWindow)
+class Ui_UpdateLaporanWindow(object):
+        def setupUi(self, UpdateLaporanWindow, ID_Pengguna=1):
+                self.UpdateLaporanWindow = UpdateLaporanWindow
+                self.ID_Pengguna = ID_Pengguna
+                self.UpdateLaporanWindow.setObjectName("UpdateLaporanWindow")
+                self.UpdateLaporanWindow.resize(900, 600)
+                self.centralwidget = QtWidgets.QWidget(UpdateLaporanWindow)
                 self.centralwidget.setObjectName("centralwidget")
                 self.Sidebar = QtWidgets.QFrame(self.centralwidget)
                 self.Sidebar.setGeometry(QtCore.QRect(0, 0, 211, 611))
@@ -268,16 +272,16 @@ class Ui_MainWindow(object):
                 self.button_simpan_positif.raise_()
                 self.button_simpan_sembuh.raise_()
                 self.button_simpan_meninggal.raise_()
-                MainWindow.setCentralWidget(self.centralwidget)
-                self.statusbar = QtWidgets.QStatusBar(MainWindow)
+                self.UpdateLaporanWindow.setCentralWidget(self.centralwidget)
+                self.statusbar = QtWidgets.QStatusBar(UpdateLaporanWindow)
                 self.statusbar.setObjectName("statusbar")
-                MainWindow.setStatusBar(self.statusbar)
-
-                self.retranslateUi(MainWindow)
-                QtCore.QMetaObject.connectSlotsByName(MainWindow)
-
+                self.UpdateLaporanWindow.setStatusBar(self.statusbar)
+                
                 # Melakukan setup SQL
                 self.setupSql()
+                
+                self.retranslateUi(UpdateLaporanWindow)
+                QtCore.QMetaObject.connectSlotsByName(UpdateLaporanWindow)
 
                 # Hide Simpan
                 self.hideAllSimpan()
@@ -289,29 +293,32 @@ class Ui_MainWindow(object):
                 self.button_simpan_positif.clicked.connect(self.simpanKasusPositif)
                 self.button_simpan_sembuh.clicked.connect(self.simpanPasienSembuh)
                 self.button_simpan_meninggal.clicked.connect(self.simpanPasienMeninggal)
+                self.Logout.clicked.connect(self.logout)
+                self.RumahSakit.clicked.connect(self.to_Data_RS)
 
                 # Set Initial Value
                 self.refreshAllValue()
 
         
                 
-        def retranslateUi(self, MainWindow):
+        def retranslateUi(self, UpdateLaporanWindow):
                 _translate = QtCore.QCoreApplication.translate
-                MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-                self.Laporan_Harian.setText(_translate("MainWindow", "Laporan Harian"))
-                self.label.setText(_translate("MainWindow", "CoverMe"))
-                self.RumahSakit.setText(_translate("MainWindow", "Rumah Sakit"))
-                self.Daftar_Pesanan.setText(_translate("MainWindow", "Daftar Pesanan"))
-                self.Home.setText(_translate("MainWindow", "Home"))
-                self.Logout.setText(_translate("MainWindow", "Logout"))
-                self.Nama_Admin.setText(_translate("MainWindow", "Welcome  <AdminName>"))
-                self.header_tambah.setText(_translate("MainWindow", "LAPORAN HARIAN COVID-19"))
-                self.label_positif.setText(_translate("MainWindow", "Kasus Positif"))
-                self.label_sembuh.setText(_translate("MainWindow", "Pasien Sembuh"))
-                self.label_meninggal.setText(_translate("MainWindow", "Pasien Meninggal"))
-                self.button_simpan_positif.setText(_translate("MainWindow", "Simpan"))
-                self.button_simpan_sembuh.setText(_translate("MainWindow", "Simpan"))
-                self.button_simpan_meninggal.setText(_translate("MainWindow", "Simpan"))
+                UpdateLaporanWindow.setWindowTitle(_translate("UpdateLaporanWindow", "UpdateLaporanWindow"))
+                self.Laporan_Harian.setText(_translate("UpdateLaporanWindow", "Laporan Harian"))
+                self.label.setText(_translate("UpdateLaporanWindow", "CoverMe"))
+                self.RumahSakit.setText(_translate("UpdateLaporanWindow", "Rumah Sakit"))
+                self.Daftar_Pesanan.setText(_translate("UpdateLaporanWindow", "Daftar Pesanan"))
+                self.Home.setText(_translate("UpdateLaporanWindow", "Home"))
+                self.Logout.setText(_translate("UpdateLaporanWindow", "Logout"))
+                Nama_Admin = get_username(self.cursor,self.DB_NAME,self.ID_Pengguna)
+                self.Nama_Admin.setText(_translate("UpdateLaporanWindow", "Welcome "+Nama_Admin[1]))
+                self.header_tambah.setText(_translate("UpdateLaporanWindow", "LAPORAN HARIAN COVID-19"))
+                self.label_positif.setText(_translate("UpdateLaporanWindow", "Kasus Positif"))
+                self.label_sembuh.setText(_translate("UpdateLaporanWindow", "Pasien Sembuh"))
+                self.label_meninggal.setText(_translate("UpdateLaporanWindow", "Pasien Meninggal"))
+                self.button_simpan_positif.setText(_translate("UpdateLaporanWindow", "Simpan"))
+                self.button_simpan_sembuh.setText(_translate("UpdateLaporanWindow", "Simpan"))
+                self.button_simpan_meninggal.setText(_translate("UpdateLaporanWindow", "Simpan"))
 	
         def setupSql(self):
 		# Melakukan setup koneksi SQL
@@ -397,11 +404,32 @@ class Ui_MainWindow(object):
                 msg.setText(succ)
                 x = msg.exec_()
 
+        def logout(self):
+                # Melakukan logout
+                from ui_login import Ui_LoginWindow
+                self.window = QtWidgets.QMainWindow()
+                self.ui = Ui_LoginWindow()
+                self.ui.setupUi(self.window)
+                self.window.show()
+                self.UpdateLaporanWindow.close()
+                print("Logout")
+                return
+        
+        def to_Data_RS(self):
+                # Navigate to update laporan page
+                from Admin_RS import Ui_DataRSWindow
+                self.window = QtWidgets.QMainWindow()
+                self.ui = Ui_DataRSWindow()
+                self.ui.setupUi(self.window, self.ID_Pengguna)
+                self.window.show()
+                self.UpdateLaporanWindow.close()
+                print("Data RS ")
+                return
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
+    UpdateLaporanWindow = QtWidgets.QMainWindow()
+    ui = Ui_UpdateLaporanWindow()
+    ui.setupUi(UpdateLaporanWindow)
+    UpdateLaporanWindow.show()
     sys.exit(app.exec_())
