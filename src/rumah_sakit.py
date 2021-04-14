@@ -19,7 +19,7 @@ def create_table_rs(cursor,DB_NAME):
         " `Harga_RS` int NOT NULL,"
         " `Kapasitas` int NOT NULL ,"
         " `Jumlah_Pasien` int NOT NULL DEFAULT 0,"
-        " PRIMARY KEY (`ID_RS`),"
+        " PRIMARY KEY (`ID_RS`)"
         ") ENGINE=InnoDB"
     )
     try:
