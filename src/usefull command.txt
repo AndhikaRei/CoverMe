@@ -17,3 +17,4 @@ pyuic5 -x test.ui -o test.py
 pyuic5 -x <nama_file>.ui -o <nama_file_python_baru>.py
 
 
+pyuic5 -x Admin_Home.ui -o Admin_Home.py
