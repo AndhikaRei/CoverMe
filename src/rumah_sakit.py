@@ -150,7 +150,7 @@ def get_idRS(db,cursor,DB_Name,nama_rs):
 # num = tambah_pasien(db,cursor,DB_NAME,"RS CEMPAKA")
 # print(num)
 
-# Mengurangi jumlah pasien
+# # Mengurangi jumlah pasien
 # num = kurangi_pasien(db,cursor,DB_NAME,"RS CEMPAKA")
 # print(num)
 

@@ -328,8 +328,9 @@ class Ui_LoginWindow(object):
         # Configurasi
         config = {
             "user": "root",
-            "password": "",
-            "host": "localhost"
+            "password": "root",
+            "host": "localhost",
+            "port" : "3307"
         }
         # Nama database
         self.DB_NAME = "Cover_Me"
