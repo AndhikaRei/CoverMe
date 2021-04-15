@@ -64,6 +64,36 @@ def create_table_klien(cursor,DB_NAME):
         return [0,err.msg]
     
 
+def add_new_admin(db,cursor,DB_NAME,val):
+    # Menambahkan data admin baru
+    # @Param
+    # db : database yang sedang connect
+    # cursor : cursor database
+    # DB_Name : nama database
+    # val : tupple nama_pengguna, username, password, email, alamat, tanggal_lahir, nomor_telepon, Role
+    # Note, password belum diencrypsi
+    # Return pesan sukses/error beserta kodenya
+    val[2] = encrypt_password(val[2])
+    
+    cursor.execute("USE {}".format(DB_NAME))
+    try:
+        sql_addAdmin = ("INSERT INTO user(nama_pengguna, username, password, email, alamat, tanggal_lahir, nomor_telepon, Role)"
+               "VALUES (%s, %s, %s, %s, %s, %s, %s, %s);")
+        cursor.execute(sql_addAdmin, val)
+        log_id = cursor.lastrowid
+        db.commit()
+        
+        print("Menambahkan Admin dengan id {}".format(log_id))
+        return [1,"Menambahkan Admin  dengan id"+str(log_id)]
+    # Ada duplicate
+    except mysql.connector.IntegrityError as err:    
+        # print(err.msg)
+        return [-1,err.msg]
+    # Error lainnya
+    except mysql.connector.Error as err:
+        # print(err.msg)
+        return [0,err.msg]
+    
 def add_new_user(db,cursor,DB_NAME,val):
     # Menambahkan data pengguna baru
     # @Param

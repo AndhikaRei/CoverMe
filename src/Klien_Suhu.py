@@ -13,6 +13,7 @@ from suhu_harian import *
 from update_laporan import *
 from autentikasi import *
 from Klien_PesanRS import *
+from Init_DBData import *
 
 class Ui_SuhuHarianWindow(object):
         def setupUi(self, SuhuHarianWindow, ID_Pengguna=2):
@@ -285,14 +286,8 @@ class Ui_SuhuHarianWindow(object):
 
         def setupSql(self):
 		# Melakukan setup koneksi SQL
-                config = {
-                        "user": "root",
-                        "password": "root",
-                        "host": "localhost",
-                        "port" : "3307"
-                }
-                self.DB_NAME = 'Cover_Me'
-                self.db = mysql.connector.connect(**config)
+                self.DB_NAME = get_DB_NAME()
+                self.db = mysql.connector.connect(**get_config())
                 self.cursor = self.db.cursor()
 
         def hideAman(self):
@@ -382,6 +377,7 @@ class Ui_SuhuHarianWindow(object):
 
 if __name__ == "__main__":
     import sys
+    InitDB()
     app = QtWidgets.QApplication(sys.argv)
     SuhuHarianWindow = QtWidgets.QMainWindow()
     ui = Ui_SuhuHarianWindow()

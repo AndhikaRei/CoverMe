@@ -13,6 +13,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from autentikasi import *
 from Klien_PesanRS import *
 from Admin_RS import *
+from Init_DBData import *
 
 
 class Ui_LoginWindow(object):
@@ -33,12 +34,12 @@ class Ui_LoginWindow(object):
         self.gambar_1.setStyleSheet("background-color: rgb(150, 150, 150);")
         self.gambar_1.setText("")
         self.gambar_1.setTextFormat(QtCore.Qt.AutoText)
-        self.gambar_1.setPixmap(QtGui.QPixmap("../img/dummy.jpg"))
+        self.gambar_1.setPixmap(QtGui.QPixmap("../img/GB1_Login.jpg"))
         self.gambar_1.setScaledContents(True)
         self.gambar_1.setWordWrap(False)
         self.gambar_1.setObjectName("gambar_1")
         self.label_info = QtWidgets.QLabel(self.centralwidget)
-        self.label_info.setGeometry(QtCore.QRect(50, 50, 381, 51))
+        self.label_info.setGeometry(QtCore.QRect(50, 50, 400, 70))
         font = QtGui.QFont()
         font.setPointSize(20)
         self.label_info.setFont(font)
@@ -230,7 +231,7 @@ class Ui_LoginWindow(object):
         self.gambar_2.setStyleSheet("background-color: rgb(150, 150, 150);")
         self.gambar_2.setText("")
         self.gambar_2.setTextFormat(QtCore.Qt.AutoText)
-        self.gambar_2.setPixmap(QtGui.QPixmap("../img/dummy.jpg"))
+        self.gambar_2.setPixmap(QtGui.QPixmap("../img/GB2_Login.jpg"))
         self.gambar_2.setScaledContents(True)
         self.gambar_2.setWordWrap(False)
         self.gambar_2.setObjectName("gambar_2")
@@ -240,7 +241,7 @@ class Ui_LoginWindow(object):
         self.gambar_3.setStyleSheet("background-color: rgb(150, 150, 150);")
         self.gambar_3.setText("")
         self.gambar_3.setTextFormat(QtCore.Qt.AutoText)
-        self.gambar_3.setPixmap(QtGui.QPixmap("../img/dummy.jpg"))
+        self.gambar_3.setPixmap(QtGui.QPixmap("../img/GB3_Login.jpg"))
         self.gambar_3.setScaledContents(True)
         self.gambar_3.setWordWrap(False)
         self.gambar_3.setObjectName("gambar_3")
@@ -250,7 +251,7 @@ class Ui_LoginWindow(object):
         self.gambar_4.setStyleSheet("background-color: rgb(150, 150, 150);")
         self.gambar_4.setText("")
         self.gambar_4.setTextFormat(QtCore.Qt.AutoText)
-        self.gambar_4.setPixmap(QtGui.QPixmap("../img/dummy.jpg"))
+        self.gambar_4.setPixmap(QtGui.QPixmap("../img/GB4_Login.png"))
         self.gambar_4.setScaledContents(True)
         self.gambar_4.setWordWrap(False)
         self.gambar_4.setObjectName("gambar_4")
@@ -292,7 +293,7 @@ class Ui_LoginWindow(object):
     def retranslateUi(self, LoginWindow):
         _translate = QtCore.QCoreApplication.translate
         LoginWindow.setWindowTitle(_translate("LoginWindow", "Cover Me"))
-        self.label_info.setText(_translate("LoginWindow", "KAMI TIDAK PEDULI"))
+        self.label_info.setText(_translate("LoginWindow", "We Save Your Life \nStay Away From Covid-19"))
         self.label_login.setText(_translate("LoginWindow", "LOGIN"))
         self.label_username.setText(_translate("LoginWindow", "Username"))
         self.label_password.setText(_translate("LoginWindow", "Password"))
@@ -326,16 +327,10 @@ class Ui_LoginWindow(object):
     
     def setupSQL(self):
         # Configurasi
-        config = {
-            "user": "root",
-            "password": "root",
-            "host": "localhost",
-            "port" : "3307"
-        }
         # Nama database
-        self.DB_NAME = "Cover_Me"
+        self.DB_NAME = get_DB_NAME()
         # Database yang sedang connect
-        self.db = mysql.connector.connect(**config)
+        self.db = mysql.connector.connect(**get_config())
         # Cursor database
         self.cursor = self.db.cursor()
     
@@ -442,6 +437,7 @@ class Ui_LoginWindow(object):
 
 if __name__ == "__main__":
     import sys
+    InitDB()
     app = QtWidgets.QApplication(sys.argv)
     LoginWindow = QtWidgets.QMainWindow()
     ui = Ui_LoginWindow()

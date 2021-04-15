@@ -16,6 +16,7 @@ import mysql.connector
 from ui_login import *
 from Klien_Home import *
 from Klien_PesanRS import *
+from Init_DBData import *
 
 
 class Ui_PesanRSWindow(object):
@@ -179,14 +180,8 @@ class Ui_PesanRSWindow(object):
 	
 	def setupSQL(self):
 		# Melakukan setup koneksi ke database
-		config = {
-			"user": "root",
-			"password": "root",
-			"host": "localhost",
-			"port" : "3307"
-		}
-		self.DB_NAME = 'Cover_Me'
-		self.db = mysql.connector.connect(**config)
+		self.DB_NAME = get_DB_NAME()
+		self.db = mysql.connector.connect(**get_config())
 		self.cursor = self.db.cursor()
 
 	def pesanRS(self, i):
@@ -314,6 +309,7 @@ class Ui_PesanRSWindow(object):
 
 if __name__ == "__main__":
     import sys
+    InitDB()
     app = QtWidgets.QApplication(sys.argv)
     print("mainAkses")
     PesanRSWindow = QtWidgets.QMainWindow()

@@ -13,6 +13,7 @@ from update_laporan import *
 from Admin_RS import *
 from Admin_UpdateLaporan import *
 from autentikasi import *
+from Init_DBData import *
 
 class Ui_AdminHomeWindow(object):
         def setupUi(self, AdminHomeWindow, ID_Pengguna=1):
@@ -117,7 +118,7 @@ class Ui_AdminHomeWindow(object):
                 self.label_2 = QtWidgets.QLabel(self.centralwidget)
                 self.label_2.setGeometry(QtCore.QRect(310, 130, 491, 281))
                 self.label_2.setText("")
-                self.label_2.setPixmap(QtGui.QPixmap("../img/nao.jpg"))
+                self.label_2.setPixmap(QtGui.QPixmap("../img/GB_Laporan.jpg"))
                 self.label_2.setScaledContents(True)
                 self.label_2.setObjectName("label_2")
                 self.label_positif = QtWidgets.QLabel(self.centralwidget)
@@ -238,14 +239,12 @@ class Ui_AdminHomeWindow(object):
 
         def setupSql(self):
 		# Melakukan setup koneksi SQL
-                config = {
-                        "user": "root",
-                        "password": "root",
-                        "host": "localhost",
-                        "port" : "3307"
-                }
-                self.DB_NAME = 'Cover_Me'
-                self.db = mysql.connector.connect(**config)
+                # Configurasi
+                # Nama database
+                self.DB_NAME = get_DB_NAME()
+                # Database yang sedang connect
+                self.db = mysql.connector.connect(**get_config())
+                # Cursor database
                 self.cursor = self.db.cursor()
 
         def refreshAllValue(self):
@@ -287,6 +286,7 @@ class Ui_AdminHomeWindow(object):
                 return
 if __name__ == "__main__":
     import sys
+    InitDB()
     app = QtWidgets.QApplication(sys.argv)
     AdminHomeWindow = QtWidgets.QMainWindow()
     ui = Ui_AdminHomeWindow()

@@ -14,6 +14,7 @@ import mysql.connector
 from autentikasi import *
 from ui_login import *
 from Admin_Home import *
+from Init_DBData import *
 
 
 class Ui_DataRSWindow(object):
@@ -232,14 +233,8 @@ class Ui_DataRSWindow(object):
 	
 	def setupSql(self):
 		# Melakukan setup koneksi SQL
-		config = {
-			"user": "root",
-			"password": "root",
-			"host": "localhost",
-			"port" : "3307"
-		}
-		self.DB_NAME = 'Cover_Me'
-		self.db = mysql.connector.connect(**config)
+		self.DB_NAME = get_DB_NAME()
+		self.db = mysql.connector.connect(**get_config())
 		self.cursor = self.db.cursor()
 
 	def loadTable(self):
@@ -360,6 +355,7 @@ class Ui_DataRSWindow(object):
 
 if __name__ == "__main__":
     import sys
+    InitDB()
     app = QtWidgets.QApplication(sys.argv)
     DataRSWindow = QtWidgets.QMainWindow()
     ui = Ui_DataRSWindow()

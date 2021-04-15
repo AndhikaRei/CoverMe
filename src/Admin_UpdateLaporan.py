@@ -13,6 +13,7 @@ from update_laporan import *
 from Admin_RS import *
 from Admin_Home import *
 from autentikasi import *
+from Init_DBData import *
 
 class Ui_UpdateLaporanWindow(object):
         def setupUi(self, UpdateLaporanWindow, ID_Pengguna=1):
@@ -117,7 +118,7 @@ class Ui_UpdateLaporanWindow(object):
                 self.label_2 = QtWidgets.QLabel(self.centralwidget)
                 self.label_2.setGeometry(QtCore.QRect(310, 130, 491, 281))
                 self.label_2.setText("")
-                self.label_2.setPixmap(QtGui.QPixmap("../img/nao.jpg"))
+                self.label_2.setPixmap(QtGui.QPixmap("../img/GB_Laporan.jpg"))
                 self.label_2.setScaledContents(True)
                 self.label_2.setObjectName("label_2")
                 self.edit_positif = QtWidgets.QLineEdit(self.centralwidget)
@@ -324,14 +325,8 @@ class Ui_UpdateLaporanWindow(object):
 	
         def setupSql(self):
 		# Melakukan setup koneksi SQL
-                config = {
-                        "user": "root",
-                        "password": "root",
-                        "host": "localhost",
-                        "port" : "3307"
-                }
-                self.DB_NAME = 'Cover_Me'
-                self.db = mysql.connector.connect(**config)
+                self.DB_NAME = get_DB_NAME()
+                self.db = mysql.connector.connect(**get_config())
                 self.cursor = self.db.cursor()
         
         def hideAllSimpan(self):
@@ -441,6 +436,7 @@ class Ui_UpdateLaporanWindow(object):
 
 if __name__ == "__main__":
     import sys
+    InitDB()
     app = QtWidgets.QApplication(sys.argv)
     UpdateLaporanWindow = QtWidgets.QMainWindow()
     ui = Ui_UpdateLaporanWindow()

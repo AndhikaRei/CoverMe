@@ -69,7 +69,6 @@ def set_kasus_positif(db, cursor,DB_NAME, new_kasus_positif):
         val = (new_kasus_positif,)
         old = get_kasus_positif(cursor, DB_NAME)[1][0][0]
         cursor.execute(sql,val)
-        print(cursor)
         db.commit()
         if(int(new_kasus_positif)<=0):
             set_kasus_positif(db,cursor,DB_NAME, old)
@@ -102,7 +101,6 @@ def set_pasien_sembuh(db, cursor,DB_NAME, new_pasien_sembuh):
         val = (new_pasien_sembuh,)
         old = get_pasien_sembuh(cursor, DB_NAME)[1][0][0]
         cursor.execute(sql,val)
-        print(cursor)
         db.commit()
         if(int(new_pasien_sembuh)<=0):
             set_pasien_sembuh(db,cursor,DB_NAME, old)
@@ -135,7 +133,6 @@ def set_pasien_meninggal(db, cursor,DB_NAME, new_pasien_meninggal):
         val = (new_pasien_meninggal,)
         old = get_pasien_meninggal(cursor, DB_NAME)[1][0][0]
         cursor.execute(sql,val)
-        print(cursor)
         db.commit()
         if(int(new_pasien_meninggal)<=0):
             set_pasien_meninggal(db,cursor,DB_NAME, old)
