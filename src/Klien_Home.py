@@ -12,6 +12,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from update_laporan import *
 from autentikasi import *
 from Klien_PesanRS import *
+from Klien_Suhu import *
 
 class Ui_KlienHomeWindow(object):
         def setupUi(self, KlienHomeWindow, ID_Pengguna=2):
@@ -213,6 +214,7 @@ class Ui_KlienHomeWindow(object):
                 # Connect button navigator
                 self.Logout.clicked.connect(self.logout)
                 self.PesanRS.clicked.connect(self.to_pesan_rs)
+                self.SuhuHarian.clicked.connect(self.to_suhu_harian)
 
                 self.retranslateUi(KlienHomeWindow)
                 QtCore.QMetaObject.connectSlotsByName(KlienHomeWindow)
@@ -270,6 +272,17 @@ class Ui_KlienHomeWindow(object):
                 self.window.show()
                 self.KlienHomeWindow.close()
                 print("Pesan RS")
+                return
+        
+        def to_suhu_harian(self):
+                # Navigate to suhu harian page
+                from Klien_Suhu import Ui_SuhuHarianWindow
+                self.window = QtWidgets.QMainWindow()
+                self.ui = Ui_SuhuHarianWindow()
+                self.ui.setupUi(self.window, self.ID_Pengguna)
+                self.window.show()
+                self.KlienHomeWindow.close()
+                print("Suhu Harian")
                 return
 
 if __name__ == "__main__":

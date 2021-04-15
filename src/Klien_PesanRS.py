@@ -14,6 +14,8 @@ from pesanan import *
 from rumah_sakit import *
 import mysql.connector
 from ui_login import *
+from Klien_Home import *
+from Klien_PesanRS import *
 
 
 class Ui_PesanRSWindow(object):
@@ -166,6 +168,9 @@ class Ui_PesanRSWindow(object):
 		# Apabila tombol Home di klik
 		self.Home.clicked.connect(self.toKlienHome)
 
+		# Apabila tombol Suhu Harian di klik
+		self.SuhuHarian.clicked.connect(self.to_suhu_harian)
+
 		self.loadTable()
 		
 		self.retranslateUi(PesanRSWindow)
@@ -271,6 +276,17 @@ class Ui_PesanRSWindow(object):
 		self.PesanRSWindow.close()
 		print("Klien_Home")
 	
+	def to_suhu_harian(self):
+		# Navigate to suhu harian page
+		from Klien_Suhu import Ui_SuhuHarianWindow
+		self.window = QtWidgets.QMainWindow()
+		self.ui = Ui_SuhuHarianWindow()
+		self.ui.setupUi(self.window, self.ID_Pengguna)
+		self.window.show()
+		self.PesanRSWindow.close()
+		print("Suhu Harian")
+		return
+
 	def retranslateUi(self, PesanRSWindow):
 		# Menulis ulang text di GUI
 		_translate = QtCore.QCoreApplication.translate
