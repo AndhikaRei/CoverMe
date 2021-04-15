@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'Admin_Home.ui'
+# Form implementation generated from reading ui file 'Klien_Home.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.2
 #
@@ -10,92 +10,17 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from update_laporan import *
-from Admin_RS import *
-from Admin_UpdateLaporan import *
 from autentikasi import *
+from Klien_PesanRS import *
 
-class Ui_AdminHomeWindow(object):
-        def setupUi(self, AdminHomeWindow, ID_Pengguna=1):
-                self.AdminHomeWindow = AdminHomeWindow
+class Ui_KlienHomeWindow(object):
+        def setupUi(self, KlienHomeWindow, ID_Pengguna=2):
+                self.KlienHomeWindow = KlienHomeWindow
                 self.ID_Pengguna = ID_Pengguna
-                self.AdminHomeWindow.setObjectName("AdminHomeWindow")
-                self.AdminHomeWindow.resize(900, 600)
-                self.centralwidget = QtWidgets.QWidget(AdminHomeWindow)
+                self.KlienHomeWindow.setObjectName("KlienHomeWindow")
+                self.KlienHomeWindow.resize(900, 600)
+                self.centralwidget = QtWidgets.QWidget(KlienHomeWindow)
                 self.centralwidget.setObjectName("centralwidget")
-                self.Sidebar = QtWidgets.QFrame(self.centralwidget)
-                self.Sidebar.setGeometry(QtCore.QRect(0, 0, 211, 611))
-                self.Sidebar.setStyleSheet("QFrame{\n"
-                "    background-color: rgb(72, 67, 67);\n"
-                "}")
-                self.Sidebar.setFrameShape(QtWidgets.QFrame.StyledPanel)
-                self.Sidebar.setFrameShadow(QtWidgets.QFrame.Raised)
-                self.Sidebar.setObjectName("Sidebar")
-                self.Laporan_Harian = QtWidgets.QPushButton(self.Sidebar)
-                self.Laporan_Harian.setGeometry(QtCore.QRect(20, 180, 171, 51))
-                font = QtGui.QFont()
-                font.setFamily("Roboto")
-                font.setPointSize(16)
-                self.Laporan_Harian.setFont(font)
-                self.Laporan_Harian.setStyleSheet("QPushButton{\n"
-                "    background-color: rgb(72, 67, 67);\n"
-                        "    color: rgb(255, 255, 255);\n"
-                        "}")
-                self.Laporan_Harian.setObjectName("Laporan_Harian")
-                self.label = QtWidgets.QLabel(self.Sidebar)
-                self.label.setGeometry(QtCore.QRect(20, 20, 171, 71))
-                font = QtGui.QFont()
-                font.setPointSize(28)
-                font.setBold(True)
-                font.setWeight(75)
-                self.label.setFont(font)
-                self.label.setStyleSheet("QLabel{\n"
-                "    color: rgb(255, 255, 255);\n"
-                "}")
-                self.label.setObjectName("label")
-                self.RumahSakit = QtWidgets.QPushButton(self.Sidebar)
-                self.RumahSakit.setGeometry(QtCore.QRect(20, 250, 171, 51))
-                font = QtGui.QFont()
-                font.setFamily("Roboto")
-                font.setPointSize(16)
-                self.RumahSakit.setFont(font)
-                self.RumahSakit.setStyleSheet("QPushButton{\n"
-                "    background-color: rgb(72, 67, 67);\n"
-                "    color: rgb(255, 255, 255);\n"
-                "}")
-                self.RumahSakit.setObjectName("RumahSakit")
-                self.Daftar_Pesanan = QtWidgets.QPushButton(self.Sidebar)
-                self.Daftar_Pesanan.setGeometry(QtCore.QRect(20, 320, 171, 51))
-                font = QtGui.QFont()
-                font.setFamily("Roboto")
-                font.setPointSize(16)
-                self.Daftar_Pesanan.setFont(font)
-                self.Daftar_Pesanan.setStyleSheet("QPushButton{\n"
-                "    background-color: rgb(72, 67, 67);\n"
-                "    color: rgb(255, 255, 255);\n"
-                "}")
-                self.Daftar_Pesanan.setObjectName("Daftar_Pesanan")
-                self.Home = QtWidgets.QPushButton(self.Sidebar)
-                self.Home.setGeometry(QtCore.QRect(20, 110, 171, 51))
-                font = QtGui.QFont()
-                font.setFamily("Roboto")
-                font.setPointSize(16)
-                self.Home.setFont(font)
-                self.Home.setStyleSheet("QPushButton{\n"
-                "    background-color: rgb(72, 67, 67);\n"
-                "    color: rgb(255, 255, 255);\n"
-                "}")
-                self.Home.setObjectName("Home")
-                self.Logout = QtWidgets.QPushButton(self.Sidebar)
-                self.Logout.setGeometry(QtCore.QRect(20, 520, 171, 51))
-                font = QtGui.QFont()
-                font.setFamily("Roboto")
-                font.setPointSize(16)
-                self.Logout.setFont(font)
-                self.Logout.setStyleSheet("QPushButton{\n"
-                "    background-color: rgb(72, 67, 67);\n"
-                "    color: rgb(255, 255, 255);\n"
-                "}")
-                self.Logout.setObjectName("Logout")
                 self.Nama_Admin = QtWidgets.QLabel(self.centralwidget)
                 self.Nama_Admin.setGeometry(QtCore.QRect(650, 0, 251, 61))
                 font = QtGui.QFont()
@@ -201,40 +126,111 @@ class Ui_AdminHomeWindow(object):
                 self.label_pasien_meninggal.setText("")
                 self.label_pasien_meninggal.setAlignment(QtCore.Qt.AlignCenter)
                 self.label_pasien_meninggal.setObjectName("label_pasien_meninggal")
-                self.AdminHomeWindow.setCentralWidget(self.centralwidget)
-                self.statusbar = QtWidgets.QStatusBar(AdminHomeWindow)
+                self.Sidebar = QtWidgets.QFrame(self.centralwidget)
+                self.Sidebar.setGeometry(QtCore.QRect(0, 0, 211, 591))
+                self.Sidebar.setStyleSheet("QFrame{\n"
+                "    background-color: rgb(72, 67, 67);\n"
+                "}")
+                self.Sidebar.setFrameShape(QtWidgets.QFrame.StyledPanel)
+                self.Sidebar.setFrameShadow(QtWidgets.QFrame.Raised)
+                self.Sidebar.setObjectName("Sidebar")
+                self.SuhuHarian = QtWidgets.QPushButton(self.Sidebar)
+                self.SuhuHarian.setGeometry(QtCore.QRect(20, 180, 171, 51))
+                font = QtGui.QFont()
+                font.setFamily("Roboto")
+                font.setPointSize(16)
+                self.SuhuHarian.setFont(font)
+                self.SuhuHarian.setStyleSheet("QPushButton{\n"
+                "    background-color: rgb(72, 67, 67);\n"
+                "    color: rgb(255, 255, 255);\n"
+                "}")
+                self.SuhuHarian.setObjectName("SuhuHarian")
+                self.label = QtWidgets.QLabel(self.Sidebar)
+                self.label.setGeometry(QtCore.QRect(20, 20, 171, 71))
+                font = QtGui.QFont()
+                font.setPointSize(28)
+                font.setBold(True)
+                font.setWeight(75)
+                self.label.setFont(font)
+                self.label.setStyleSheet("QLabel{\n"
+                "    color: rgb(255, 255, 255);\n"
+                "}")
+                self.label.setObjectName("label")
+                self.PesanRS = QtWidgets.QPushButton(self.Sidebar)
+                self.PesanRS.setGeometry(QtCore.QRect(20, 250, 171, 51))
+                font = QtGui.QFont()
+                font.setFamily("Roboto")
+                font.setPointSize(16)
+                self.PesanRS.setFont(font)
+                self.PesanRS.setStyleSheet("QPushButton{\n"
+                "    background-color: rgb(72, 67, 67);\n"
+                "    color: rgb(255, 255, 255);\n"
+                "}")
+                self.PesanRS.setObjectName("PesanRS")
+                self.Pesanan = QtWidgets.QPushButton(self.Sidebar)
+                self.Pesanan.setGeometry(QtCore.QRect(20, 320, 171, 51))
+                font = QtGui.QFont()
+                font.setFamily("Roboto")
+                font.setPointSize(16)
+                self.Pesanan.setFont(font)
+                self.Pesanan.setStyleSheet("QPushButton{\n"
+                "    background-color: rgb(72, 67, 67);\n"
+                "    color: rgb(255, 255, 255);\n"
+                "}")
+                self.Pesanan.setObjectName("Pesanan")
+                self.Home = QtWidgets.QPushButton(self.Sidebar)
+                self.Home.setGeometry(QtCore.QRect(20, 110, 171, 51))
+                font = QtGui.QFont()
+                font.setFamily("Roboto")
+                font.setPointSize(16)
+                self.Home.setFont(font)
+                self.Home.setStyleSheet("QPushButton{\n"
+                "    background-color: rgb(72, 67, 67);\n"
+                "    color: rgb(255, 255, 255);\n"
+                "}")
+                self.Home.setObjectName("Home")
+                self.Logout = QtWidgets.QPushButton(self.Sidebar)
+                self.Logout.setGeometry(QtCore.QRect(20, 520, 171, 51))
+                font = QtGui.QFont()
+                font.setFamily("Roboto")
+                font.setPointSize(16)
+                self.Logout.setFont(font)
+                self.Logout.setStyleSheet("QPushButton{\n"
+                "    background-color: rgb(72, 67, 67);\n"
+                "    color: rgb(255, 255, 255);\n"
+                "}")
+                self.KlienHomeWindow.setCentralWidget(self.centralwidget)
+                self.statusbar = QtWidgets.QStatusBar(KlienHomeWindow)
                 self.statusbar.setObjectName("statusbar")
-                self.AdminHomeWindow.setStatusBar(self.statusbar)
+                self.KlienHomeWindow.setStatusBar(self.statusbar)
 
                 # Melakukan setup SQL
                 self.setupSql()
 
                 # Mendapatkan semua data
                 self.refreshAllValue()
-
+                
                 # Connect button navigator
-                self.Laporan_Harian.clicked.connect(self.to_update_laporan)
                 self.Logout.clicked.connect(self.logout)
-                self.RumahSakit.clicked.connect(self.to_Data_RS)
 
-                self.retranslateUi(AdminHomeWindow)
-                QtCore.QMetaObject.connectSlotsByName(AdminHomeWindow)
+                self.retranslateUi(KlienHomeWindow)
+                QtCore.QMetaObject.connectSlotsByName(KlienHomeWindow)
 
-        def retranslateUi(self, AdminHomeWindow):
+        def retranslateUi(self, KlienHomeWindow):
                 _translate = QtCore.QCoreApplication.translate
-                AdminHomeWindow.setWindowTitle(_translate("AdminHomeWindow", "AdminHomeWindow"))
-                self.Laporan_Harian.setText(_translate("AdminHomeWindow", "Laporan Harian"))
-                self.label.setText(_translate("AdminHomeWindow", "CoverMe"))
-                self.RumahSakit.setText(_translate("AdminHomeWindow", "Rumah Sakit"))
-                self.Daftar_Pesanan.setText(_translate("AdminHomeWindow", "Daftar Pesanan"))
-                self.Home.setText(_translate("AdminHomeWindow", "Home"))
-                self.Logout.setText(_translate("AdminHomeWindow", "Logout"))
+                KlienHomeWindow.setWindowTitle(_translate("KlienHomeWindow", "KlienHomeWindow"))
                 Nama_Admin = get_username(self.cursor,self.DB_NAME,self.ID_Pengguna)
-                self.Nama_Admin.setText(_translate("UpdateLaporanWindow", "Welcome "+Nama_Admin[1]))
-                self.header_tambah.setText(_translate("AdminHomeWindow", "LAPORAN HARIAN COVID-19"))
-                self.label_positif.setText(_translate("AdminHomeWindow", "Kasus Positif"))
-                self.label_sembuh.setText(_translate("AdminHomeWindow", "Pasien Sembuh"))
-                self.label_meninggal.setText(_translate("AdminHomeWindow", "Pasien Meninggal"))
+                self.Nama_Admin.setText(_translate("KlienHomeWindow", "Welcome "+Nama_Admin[1]))
+                self.header_tambah.setText(_translate("KlienHomeWindow", "LAPORAN HARIAN COVID-19"))
+                self.label_positif.setText(_translate("KlienHomeWindow", "Kasus Positif"))
+                self.label_sembuh.setText(_translate("KlienHomeWindow", "Pasien Sembuh"))
+                self.label_meninggal.setText(_translate("KlienHomeWindow", "Pasien Meninggal"))
+                self.SuhuHarian.setText(_translate("KlienHomeWindow", "Suhu Harian"))
+                self.label.setText(_translate("KlienHomeWindow", "CoverMe"))
+                self.PesanRS.setText(_translate("KlienHomeWindow", "Pesan RS"))
+                self.Pesanan.setText(_translate("KlienHomeWindow", "Pesanan"))
+                self.Home.setText(_translate("KlienHomeWindow", "Home"))
+                self.Logout.setText(_translate("MainWindow", "Logout"))
 
         def setupSql(self):
 		# Melakukan setup koneksi SQL
@@ -248,6 +244,7 @@ class Ui_AdminHomeWindow(object):
                 self.db = mysql.connector.connect(**config)
                 self.cursor = self.db.cursor()
 
+
         def refreshAllValue(self):
                 self.label_kasus_positif.setText(str(get_kasus_positif(self.cursor, self.DB_NAME)[1][0][0]))
                 self.label_pasien_sembuh.setText(str(get_pasien_sembuh(self.cursor, self.DB_NAME)[1][0][0]))
@@ -260,36 +257,15 @@ class Ui_AdminHomeWindow(object):
                 self.ui = Ui_LoginWindow()
                 self.ui.setupUi(self.window)
                 self.window.show()
-                self.AdminHomeWindow.close()
+                self.KlienHomeWindow.close()
                 print("Logout")
                 return
-        
-        def to_Data_RS(self):
-                # Navigate to update laporan page
-                from Admin_RS import Ui_DataRSWindow
-                self.window = QtWidgets.QMainWindow()
-                self.ui = Ui_DataRSWindow()
-                self.ui.setupUi(self.window, self.ID_Pengguna)
-                self.window.show()
-                self.AdminHomeWindow.close()
-                print("Data RS ")
-                return
 
-        def to_update_laporan(self):
-                # Navigate to update laporan page
-                from Admin_UpdateLaporan import Ui_UpdateLaporanWindow
-                self.window = QtWidgets.QMainWindow()
-                self.ui = Ui_UpdateLaporanWindow()
-                self.ui.setupUi(self.window, self.ID_Pengguna)
-                self.window.show()
-                self.AdminHomeWindow.close()
-                print("Update Laporan")
-                return
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    AdminHomeWindow = QtWidgets.QMainWindow()
-    ui = Ui_AdminHomeWindow()
-    ui.setupUi(AdminHomeWindow)
-    AdminHomeWindow.show()
+    KlienHomeWindow = QtWidgets.QMainWindow()
+    ui = Ui_KlienHomeWindow()
+    ui.setupUi(KlienHomeWindow)
+    KlienHomeWindow.show()
     sys.exit(app.exec_())
