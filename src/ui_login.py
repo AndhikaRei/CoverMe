@@ -431,13 +431,13 @@ class Ui_LoginWindow(object):
         return
     
     def toKlienHome(self,ID_Pengguna):
-        from Klien_PesanRS import Ui_PesanRSWindow
+        from Klien_Home import Ui_KlienHomeWindow
         self.window = QtWidgets.QMainWindow()
-        self.ui = Ui_PesanRSWindow()
+        self.ui = Ui_KlienHomeWindow()
         self.ui.setupUi(self.window,ID_Pengguna)
         self.window.show()
         self.LoginWindow.close()
-        print("To klien")
+        print("Klien_Home")
         
 
 if __name__ == "__main__":

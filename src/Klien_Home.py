@@ -212,6 +212,7 @@ class Ui_KlienHomeWindow(object):
                 
                 # Connect button navigator
                 self.Logout.clicked.connect(self.logout)
+                self.PesanRS.clicked.connect(self.to_pesan_rs)
 
                 self.retranslateUi(KlienHomeWindow)
                 QtCore.QMetaObject.connectSlotsByName(KlienHomeWindow)
@@ -259,6 +260,16 @@ class Ui_KlienHomeWindow(object):
                 self.window.show()
                 self.KlienHomeWindow.close()
                 print("Logout")
+                return
+        def to_pesan_rs(self):
+                # Navigate to update laporan page
+                from Klien_PesanRS import Ui_PesanRSWindow
+                self.window = QtWidgets.QMainWindow()
+                self.ui = Ui_PesanRSWindow()
+                self.ui.setupUi(self.window, self.ID_Pengguna)
+                self.window.show()
+                self.KlienHomeWindow.close()
+                print("Pesan RS")
                 return
 
 if __name__ == "__main__":

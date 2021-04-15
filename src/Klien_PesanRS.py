@@ -163,6 +163,9 @@ class Ui_PesanRSWindow(object):
 		# Apabila tombol Logout di klik
 		self.Logout.clicked.connect(self.logout)
 
+		# Apabila tombol Home di klik
+		self.Home.clicked.connect(self.toKlienHome)
+
 		self.loadTable()
 		
 		self.retranslateUi(PesanRSWindow)
@@ -259,6 +262,14 @@ class Ui_PesanRSWindow(object):
 		print("Logout")
 		return
 
+	def toKlienHome(self,ID_Pengguna):
+		from Klien_Home import Ui_KlienHomeWindow
+		self.window = QtWidgets.QMainWindow()
+		self.ui = Ui_KlienHomeWindow()
+		self.ui.setupUi(self.window,self.ID_Pengguna)
+		self.window.show()
+		self.PesanRSWindow.close()
+		print("Klien_Home")
 	
 	def retranslateUi(self, PesanRSWindow):
 		# Menulis ulang text di GUI
