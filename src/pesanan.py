@@ -84,6 +84,46 @@ def get_pesanan_klien(cursor,DB_NAME,ID_Pengguna):
         print(err.msg)
         return [0,err.msg]
 
+def get_pesanan_ongoing(cursor,DB_NAME,ID_Pengguna):
+    # Mendapatkan pesanan klien berdasarkan ID_Pengguna
+    # Return pesan sukses/error beserta kodenya
+    cursor.execute("USE {}".format(DB_NAME))
+    try:
+        sql = ("SELECT Nama_RS, Harga_RS, Tanggal_Pesanan, Status_Pesanan, ID_Pesanan FROM pesanan NATURAL JOIN rumah_sakit WHERE ID_Pengguna = %s AND Status_Pesanan > -2")
+        val = (ID_Pengguna,)
+        cursor.execute(sql,val)
+        result = cursor.fetchall()
+        return [1,result]
+    except mysql.connector.Error as err:
+        print(err.msg)
+        return [0,err.msg]
+
+def ubah_status(db,cursor,DB_NAME,ID_Pesanan,to):
+    # Mengubah status pesanan ID_Pesanan menjadi val
+    cursor.execute("USE {}".format(DB_NAME))
+    try:
+        sql = ("UPDATE pesanan SET Status_Pesanan = %s WHERE ID_Pesanan = %s")
+        val = (to, ID_Pesanan,)
+        cursor.execute(sql,val)
+        db.commit()
+        return [1,"Status pesanan berhasil diubah"]
+
+    except mysql.connector.Error as err:
+        print(err.msg)
+        return [0,err.msg]
+
+def get_all_pesanan_ongoing(cursor,DB_NAME):
+    # Mendapatkan semua pesanan ongoing
+    # Return pesan sukses/error beserta kodenya
+    cursor.execute("USE {}".format(DB_NAME))
+    try:
+        sql = ("SELECT iD_Pesanan, Username, Riwayat, Tanggal_Pesanan, Nama_RS, Kapasitas, Jumlah_Pasien FROM user NATURAL JOIN klien NATURAL JOIN pesanan NATURAL JOIN rumah_sakit WHERE Status_Pesanan = 0")
+        cursor.execute(sql)
+        result = cursor.fetchall()
+        return [1,result]
+    except mysql.connector.Error as err:
+        print(err.msg)
+        return [0,err.msg]
 
 # =========================================================================================================
 
