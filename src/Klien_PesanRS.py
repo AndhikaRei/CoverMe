@@ -172,6 +172,9 @@ class Ui_PesanRSWindow(object):
 		# Apabila tombol Suhu Harian di klik
 		self.SuhuHarian.clicked.connect(self.to_suhu_harian)
 
+		#Tombol pesanan diklik
+		self.Pesanan.clicked.connect(self.to_Klien_Pesanan)
+
 		self.loadTable()
 		
 		self.retranslateUi(PesanRSWindow)
@@ -192,8 +195,6 @@ class Ui_PesanRSWindow(object):
 			ID_RS = get_idRS(self.db,self.cursor,self.DB_NAME,Nama_RS)[1]
 			res= add_new_pesanan(self.db,self.cursor,self.DB_NAME,ID_RS,self.ID_Pengguna)
 			if (res[0]==1):
-				tambah_pasien(self.db,self.cursor,self.DB_NAME,Nama_RS)
-				self.loadTable()
 				self.showSucc("Pesanan berhasil dibuat")
 			else:
 				self.showAlert(res[1])
@@ -280,6 +281,17 @@ class Ui_PesanRSWindow(object):
 		self.window.show()
 		self.PesanRSWindow.close()
 		print("Suhu Harian")
+		return
+
+	def to_Klien_Pesanan(self):
+		# Navigate to update laporan page
+		from Klien_Pesanan import Ui_KlienPesananWindow
+		self.window = QtWidgets.QMainWindow()
+		self.ui = Ui_KlienPesananWindow()
+		self.ui.setupUi(self.window, self.ID_Pengguna)
+		self.window.show()
+		self.PesanRSWindow.close()
+		print("Klien_Pesanan ")
 		return
 
 	def retranslateUi(self, PesanRSWindow):

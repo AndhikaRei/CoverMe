@@ -273,7 +273,7 @@ class Ui_KlienPesananWindow(object):
 		print(respon)
 		if (self.result[0][3] == 1):
 			kurangi_pasien(self.db,self.cursor,self.DB_NAME,self.result[0][0])
-		self.retranslateUi(KlienPesananWindow)
+		self.retranslateUi(self.KlienPesananWindow)
 
 	def logout(self):
 		# Melakukan fungsionalitas logout

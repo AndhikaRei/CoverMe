@@ -221,6 +221,7 @@ class Ui_DataRSWindow(object):
 		self.button_tambah.clicked.connect(self.submitData)
 		self.Laporan_Harian.clicked.connect(self.to_update_laporan)
 		self.Home.clicked.connect(self.to_Admin_Home)
+		self.Daftar_Pesanan.clicked.connect(self.to_Admin_Pesanan)
 
 
 		# Load Table dari database
@@ -321,6 +322,17 @@ class Ui_DataRSWindow(object):
 		self.window.show()
 		self.DataRSWindow.close()
 		print("Admin_Home ")
+		return
+
+	def to_Admin_Pesanan(self):
+		# Navigate to update laporan page
+		from Admin_Pesanan import Ui_AdminPesananWindow
+		self.window = QtWidgets.QMainWindow()
+		self.ui = Ui_AdminPesananWindow()
+		self.ui.setupUi(self.window, self.ID_Pengguna)
+		self.window.show()
+		self.DataRSWindow.close()
+		print("Admin_Pesanan ")
 		return
 
 	def retranslateUi(self, DataRSWindow):

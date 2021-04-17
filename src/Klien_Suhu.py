@@ -243,6 +243,7 @@ class Ui_SuhuHarianWindow(object):
                 self.Logout.clicked.connect(self.logout)
                 self.PesanRS.clicked.connect(self.to_pesan_rs)
                 self.Home.clicked.connect(self.toKlienHome)
+                self.Pesanan.clicked.connect(self.to_Klien_Pesanan)
 
                 self.retranslateUi(SuhuHarianWindow)
                 QtCore.QMetaObject.connectSlotsByName(SuhuHarianWindow)
@@ -374,6 +375,17 @@ class Ui_SuhuHarianWindow(object):
                 self.window.show()
                 self.SuhuHarianWindow.close()
                 print("Klien_Home")
+
+        def to_Klien_Pesanan(self):
+                # Navigate to update laporan page
+                from Klien_Pesanan import Ui_KlienPesananWindow
+                self.window = QtWidgets.QMainWindow()
+                self.ui = Ui_KlienPesananWindow()
+                self.ui.setupUi(self.window, self.ID_Pengguna)
+                self.window.show()
+                self.SuhuHarianWindow.close()
+                print("Klien_Pesanan ")
+                return
 
 if __name__ == "__main__":
     import sys

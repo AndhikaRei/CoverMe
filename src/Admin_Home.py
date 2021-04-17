@@ -217,6 +217,7 @@ class Ui_AdminHomeWindow(object):
                 self.Laporan_Harian.clicked.connect(self.to_update_laporan)
                 self.Logout.clicked.connect(self.logout)
                 self.RumahSakit.clicked.connect(self.to_Data_RS)
+                self.Daftar_Pesanan.clicked.connect(self.to_Admin_Pesanan)
 
                 self.retranslateUi(AdminHomeWindow)
                 QtCore.QMetaObject.connectSlotsByName(AdminHomeWindow)
@@ -284,6 +285,18 @@ class Ui_AdminHomeWindow(object):
                 self.AdminHomeWindow.close()
                 print("Update Laporan")
                 return
+
+        def to_Admin_Pesanan(self):
+                # Navigate to update laporan page
+                from Admin_Pesanan import Ui_AdminPesananWindow
+                self.window = QtWidgets.QMainWindow()
+                self.ui = Ui_AdminPesananWindow()
+                self.ui.setupUi(self.window, self.ID_Pengguna)
+                self.window.show()
+                self.AdminHomeWindow.close()
+                print("Admin_Pesanan ")
+                return
+
 if __name__ == "__main__":
     import sys
     InitDB()

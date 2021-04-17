@@ -95,7 +95,6 @@ def kurangi_pasien(db,cursor,DB_NAME,nama_rs):
     try:
         sql = ("UPDATE rumah_sakit SET Jumlah_Pasien = Jumlah_Pasien - 1 WHERE Nama_RS = %s")
         val = (nama_rs,)
-        print(sql, val)
         cursor.execute(sql,val)
         db.commit()
         return [1,"Pasien berhasil dikurangi"]

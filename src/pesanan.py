@@ -38,7 +38,7 @@ def add_new_pesanan(db,cursor,DB_NAME,ID_RS,ID_Pengguna):
     # Return pesan sukses/error beserta kodenya
     cursor.execute("USE {}".format(DB_NAME))
     try:
-        sql = ("""SELECT * FROM pesanan WHERE (Status_Pesanan = 0 OR Status_Pesanan=1) AND ID_Pengguna = %s""")
+        sql = ("""SELECT * FROM pesanan WHERE (Status_Pesanan > -2) AND ID_Pengguna = %s""")
         val = (ID_Pengguna,)
         cursor.execute(sql,val)
         result = cursor.fetchall()
@@ -117,7 +117,7 @@ def get_all_pesanan_ongoing(cursor,DB_NAME):
     # Return pesan sukses/error beserta kodenya
     cursor.execute("USE {}".format(DB_NAME))
     try:
-        sql = ("SELECT iD_Pesanan, Username, Riwayat, Tanggal_Pesanan, Nama_RS, Kapasitas, Jumlah_Pasien FROM user NATURAL JOIN klien NATURAL JOIN pesanan NATURAL JOIN rumah_sakit WHERE Status_Pesanan = 0")
+        sql = ("SELECT iD_Pesanan, Username, Riwayat, Tanggal_Pesanan, Nama_RS, Kapasitas, Jumlah_Pasien FROM user NATURAL JOIN klien NATURAL JOIN pesanan NATURAL JOIN rumah_sakit WHERE Status_Pesanan = 0 ORDER BY Riwayat DESC")
         cursor.execute(sql)
         result = cursor.fetchall()
         return [1,result]

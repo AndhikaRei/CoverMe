@@ -12,6 +12,7 @@ from autentikasi import get_username
 from PyQt5 import QtCore, QtGui, QtWidgets
 from pesanan import *
 from rumah_sakit import *
+from suhu_harian import *
 import mysql.connector
 from ui_login import *
 from Admin_Home import *
@@ -227,8 +228,10 @@ class Ui_AdminPesananWindow(object):
 
 	def acceptPesanan(self):
 		try:
-			self.ID_Pesanan = int(self.tabel_pesan.selectedItems()[0].text())
-			respon = ubah_status(self.db,self.cursor,self.DB_NAME,self.ID_Pesanan,1)
+			ID_Pesanan = int(self.tabel_pesan.selectedItems()[0].text())
+			respon = ubah_status(self.db,self.cursor,self.DB_NAME,ID_Pesanan,1)
+			nama_RS = self.tabel_pesan.selectedItems()[4].text()
+			tambah_pasien(self.db,self.cursor,self.DB_NAME, nama_RS)
 			print(respon)
 			self.loadTable()
 		except:

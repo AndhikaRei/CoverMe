@@ -298,6 +298,7 @@ class Ui_UpdateLaporanWindow(object):
                 self.Logout.clicked.connect(self.logout)
                 self.RumahSakit.clicked.connect(self.to_Data_RS)
                 self.Home.clicked.connect(self.to_Admin_Home)
+                self.Daftar_Pesanan.clicked.connect(self.to_Admin_Pesanan)
 
                 # Set Initial Value
                 self.refreshAllValue()
@@ -432,6 +433,17 @@ class Ui_UpdateLaporanWindow(object):
                 self.window.show()
                 self.UpdateLaporanWindow.close()
                 print("Admin_Home ")
+                return
+
+        def to_Admin_Pesanan(self):
+                # Navigate to update laporan page
+                from Admin_Pesanan import Ui_AdminPesananWindow
+                self.window = QtWidgets.QMainWindow()
+                self.ui = Ui_AdminPesananWindow()
+                self.ui.setupUi(self.window, self.ID_Pengguna)
+                self.window.show()
+                self.UpdateLaporanWindow.close()
+                print("Admin_Pesanan ")
                 return
 
 if __name__ == "__main__":
