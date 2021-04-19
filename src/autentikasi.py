@@ -144,6 +144,36 @@ def get_username(cursor,DB_NAME,ID_Pengguna):
         print(err.msg)
         return [0,err.msg]
 
+def get_nama(cursor,DB_NAME,ID_Pengguna):
+    # Mendapatkan nama pengguna lewat ID_Pengguna
+    cursor.execute("USE {}".format(DB_NAME))
+    try:
+        sql = ("SELECT Nama_Pengguna from user where ID_Pengguna = %s")
+        val = (ID_Pengguna,)
+        cursor.execute(sql, val)
+        res = cursor.fetchone()
+        if (len(res) > 0):
+            print("Berhasil mendapatkan nama pengguna")
+            return [1,res[0]]
+    except mysql.connector.Error as err:
+        print(err.msg)
+        return [0,err.msg]
+
+def get_email(cursor,DB_NAME,ID_Pengguna):
+    # Mendapatkan email pengguna lewat ID_Pengguna
+    cursor.execute("USE {}".format(DB_NAME))
+    try:
+        sql = ("SELECT Email from user where ID_Pengguna = %s")
+        val = (ID_Pengguna,)
+        cursor.execute(sql, val)
+        res = cursor.fetchone()
+        if (len(res) > 0):
+            print("Berhasil mendapatkan email pengguna")
+            return [1,res[0]]
+    except mysql.connector.Error as err:
+        print(err.msg)
+        return [0,err.msg]
+
 def get_role(cursor,DB_NAME,ID_Pengguna):
     # Mendapatkan rolelewat ID_Pengguna
     cursor.execute("USE {}".format(DB_NAME))

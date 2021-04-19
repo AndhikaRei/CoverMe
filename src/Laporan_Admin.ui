@@ -501,33 +501,6 @@ background-color: rgb(218, 114, 60);</string>
      <set>Qt::AlignRight|Qt::AlignTop|Qt::AlignTrailing</set>
     </property>
    </widget>
-   <widget class="QLabel" name="label_positif">
-    <property name="geometry">
-     <rect>
-      <x>505</x>
-      <y>375</y>
-      <width>144</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Montserrat ExtraBold</family>
-      <pointsize>26</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(145, 9, 30);</string>
-    </property>
-    <property name="text">
-     <string>100000</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-    </property>
-   </widget>
    <widget class="QLabel" name="box_sembuh">
     <property name="geometry">
      <rect>
@@ -557,33 +530,6 @@ background-color: rgb(218, 114, 60);</string>
      <set>Qt::AlignRight|Qt::AlignTop|Qt::AlignTrailing</set>
     </property>
    </widget>
-   <widget class="QLabel" name="label_sembuh">
-    <property name="geometry">
-     <rect>
-      <x>300</x>
-      <y>480</y>
-      <width>144</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Montserrat ExtraBold</family>
-      <pointsize>26</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(145, 9, 30);</string>
-    </property>
-    <property name="text">
-     <string>100000</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-    </property>
-   </widget>
    <widget class="QLabel" name="box_meninggal">
     <property name="geometry">
      <rect>
@@ -611,33 +557,6 @@ background-color: rgb(218, 114, 60);</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignRight|Qt::AlignTop|Qt::AlignTrailing</set>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_meninggal">
-    <property name="geometry">
-     <rect>
-      <x>710</x>
-      <y>480</y>
-      <width>144</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Montserrat ExtraBold</family>
-      <pointsize>26</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(145, 9, 30);</string>
-    </property>
-    <property name="text">
-     <string>100000</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
     </property>
    </widget>
    <widget class="QPushButton" name="button_edit_positif">
@@ -933,6 +852,102 @@ border-radius:5px</string>
      <string>sembuh, dan pasien meninggal setiap harinya</string>
     </property>
    </widget>
+   <widget class="QLineEdit" name="edit_sembuh">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>480</y>
+      <width>151</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Montserrat ExtraBold</family>
+      <pointsize>26</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(255, 255, 255,0);
+qproperty-frame: false;
+color: rgb(145, 9, 30);</string>
+    </property>
+    <property name="text">
+     <string>100000</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="edit_positif">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>505</x>
+      <y>375</y>
+      <width>151</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Montserrat ExtraBold</family>
+      <pointsize>26</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(255, 255, 255,0);
+qproperty-frame: false;
+color: rgb(145, 9, 30);</string>
+    </property>
+    <property name="text">
+     <string>100000</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="edit_meninggal">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>480</y>
+      <width>151</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Montserrat ExtraBold</family>
+      <pointsize>26</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(255, 255, 255,0);
+qproperty-frame: false;
+color: rgb(145, 9, 30);</string>
+    </property>
+    <property name="text">
+     <string>100000</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
    <zorder>background</zorder>
    <zorder>topbar</zorder>
    <zorder>icon_notif</zorder>
@@ -952,11 +967,8 @@ border-radius:5px</string>
    <zorder>label</zorder>
    <zorder>label_email</zorder>
    <zorder>box_positif</zorder>
-   <zorder>label_positif</zorder>
    <zorder>box_sembuh</zorder>
-   <zorder>label_sembuh</zorder>
    <zorder>box_meninggal</zorder>
-   <zorder>label_meninggal</zorder>
    <zorder>button_edit_positif</zorder>
    <zorder>button_simpan_positif</zorder>
    <zorder>butto_simpan_sembuh</zorder>
@@ -970,6 +982,9 @@ border-radius:5px</string>
    <zorder>label_4</zorder>
    <zorder>label_5</zorder>
    <zorder>label_6</zorder>
+   <zorder>edit_sembuh</zorder>
+   <zorder>edit_positif</zorder>
+   <zorder>edit_meninggal</zorder>
   </widget>
  </widget>
  <resources/>
