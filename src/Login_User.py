@@ -23,7 +23,7 @@ class Ui_LoginScreen(object):
     def setupUi(self, LoginScreen):
         self.LoginScreen = LoginScreen
         self.LoginScreen.setObjectName("LoginScreen")
-        self.LoginScreen.resize(899, 600)
+        self.LoginScreen.resize(900, 600)
         self.centralwidget = QtWidgets.QWidget(LoginScreen)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
@@ -485,9 +485,9 @@ class Ui_LoginScreen(object):
         return
     
     def toKlienHome(self,ID_Pengguna):
-        from Klien_Home import Ui_KlienHomeWindow
+        from Home_Klien import Ui_HomeKlienWindow
         self.window = QtWidgets.QMainWindow()
-        self.ui = Ui_KlienHomeWindow()
+        self.ui = Ui_HomeKlienWindow()
         self.ui.setupUi(self.window,ID_Pengguna)
         self.window.show()
         self.LoginScreen.close()

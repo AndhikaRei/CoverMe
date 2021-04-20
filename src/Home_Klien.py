@@ -9,14 +9,21 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from update_laporan import *
+from autentikasi import *
+from Klien_PesanRS import *
+from Klien_Suhu import *
+from Init_DBData import *
+from datetime import date
 
-
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(900, 600)
-        MainWindow.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
-        self.centralwidget = QtWidgets.QWidget(MainWindow)
+class Ui_HomeKlienWindow(object):
+    def setupUi(self, HomeKlienWindow, ID_Pengguna=1):
+        self.HomeKlienWindow = HomeKlienWindow
+        self.ID_Pengguna = ID_Pengguna
+        self.HomeKlienWindow.setObjectName("HomeKlienWindow")
+        self.HomeKlienWindow.resize(900, 600)
+        self.HomeKlienWindow.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
+        self.centralwidget = QtWidgets.QWidget(HomeKlienWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.background = QtWidgets.QLabel(self.centralwidget)
         self.background.setGeometry(QtCore.QRect(0, 0, 900, 600))
@@ -317,36 +324,111 @@ class Ui_MainWindow(object):
         self.box_meninggal.raise_()
         self.icon_meninggal.raise_()
         self.label_meninggal.raise_()
-        MainWindow.setCentralWidget(self.centralwidget)
+        HomeKlienWindow.setCentralWidget(self.centralwidget)
 
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        # Melakukan setup SQL
+        self.setupSql()
 
-    def retranslateUi(self, MainWindow):
+        self.retranslateUi(HomeKlienWindow)
+        QtCore.QMetaObject.connectSlotsByName(HomeKlienWindow)
+        
+        # Mendapatkan semua data
+        self.refreshAllValue()
+        
+        # Connect button navigator
+        self.button_logout.clicked.connect(self.logout)
+        self.button_pesan.clicked.connect(self.to_pesan_rs)
+        self.button_suhu.clicked.connect(self.to_suhu_harian)
+        self.button_pesanan.clicked.connect(self.to_Klien_Pesanan)
+
+    def retranslateUi(self, HomeKlienWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.topbar.setText(_translate("MainWindow", "     Home"))
-        self.label_date.setText(_translate("MainWindow", "18 April 2021"))
-        self.button_home.setText(_translate("MainWindow", "              Home"))
-        self.button_suhu.setText(_translate("MainWindow", "              Suhu Harian"))
-        self.button_pesan.setText(_translate("MainWindow", "              Pesan RS"))
-        self.button_pesanan.setText(_translate("MainWindow", "              Pesanan"))
-        self.button_logout.setText(_translate("MainWindow", "              Logout"))
-        self.label.setText(_translate("MainWindow", "Name"))
-        self.label_email.setText(_translate("MainWindow", "name@gmail.com"))
-        self.box_positif.setText(_translate("MainWindow", "Kasus Positif    "))
-        self.label_positif.setText(_translate("MainWindow", "100000"))
-        self.box_sembuh.setText(_translate("MainWindow", "Pasien Sembuh   "))
-        self.label_sembuh.setText(_translate("MainWindow", "100000"))
-        self.box_meninggal.setText(_translate("MainWindow", "Pasien Meninggal    "))
-        self.label_meninggal.setText(_translate("MainWindow", "100000"))
+        HomeKlienWindow.setWindowTitle(_translate("HomeKlienWindow", "HomeKlienWindow"))
+        self.topbar.setText(_translate("HomeKlienWindow", "     Home"))
+        today = date.today()
+        d2 = today.strftime("%d %B %Y")
+        self.label_date.setText(_translate("HomeKlienWindow", d2))
+        self.button_home.setText(_translate("HomeKlienWindow", "              Home"))
+        self.button_suhu.setText(_translate("HomeKlienWindow", "              Suhu Harian"))
+        self.button_pesan.setText(_translate("HomeKlienWindow", "              Pesan RS"))
+        self.button_pesanan.setText(_translate("HomeKlienWindow", "              Pesanan"))
+        self.button_logout.setText(_translate("HomeKlienWindow", "              Logout"))
+        Nama_User = get_nama(self.cursor,self.DB_NAME,self.ID_Pengguna)
+        self.label.setText(_translate("HomeKlienWindow", Nama_User[1]))
+        Email_User = get_email(self.cursor,self.DB_NAME,self.ID_Pengguna)
+        self.label_email.setText(_translate("HomeKlienWindow", Email_User[1]))
+        self.box_positif.setText(_translate("HomeKlienWindow", "Kasus Positif    "))
+        self.label_positif.setText(_translate("HomeKlienWindow", "100000"))
+        self.box_sembuh.setText(_translate("HomeKlienWindow", "Pasien Sembuh   "))
+        self.label_sembuh.setText(_translate("HomeKlienWindow", "100000"))
+        self.box_meninggal.setText(_translate("HomeKlienWindow", "Pasien Meninggal    "))
+        self.label_meninggal.setText(_translate("HomeKlienWindow", "100000"))
 
+    def setupSql(self):
+    # Melakukan setup koneksi SQL
+        # Configurasi
+        # Nama database
+        self.DB_NAME = get_DB_NAME()
+        # Database yang sedang connect
+        self.db = mysql.connector.connect(**get_config())
+        # Cursor database
+        self.cursor = self.db.cursor()
+
+    def refreshAllValue(self):
+        self.label_positif.setText(str(get_kasus_positif(self.cursor, self.DB_NAME)[1][0][0]))
+        self.label_sembuh.setText(str(get_pasien_sembuh(self.cursor, self.DB_NAME)[1][0][0]))
+        self.label_meninggal.setText(str(get_pasien_meninggal(self.cursor, self.DB_NAME)[1][0][0]))
+
+    def logout(self):
+        # Melakukan logout
+        from Login_User import Ui_LoginScreen
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_LoginScreen()
+        self.ui.setupUi(self.window)
+        self.window.show()
+        self.HomeKlienWindow.close()
+        print("Logout")
+        return
+
+    def to_pesan_rs(self):
+        # Navigate to update laporan page
+        from PesanRS_Klien import Ui_PesanRSKlienWindow
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_PesanRSKlienWindow()
+        self.ui.setupUi(self.window, self.ID_Pengguna)
+        self.window.show()
+        self.HomeKlienWindow.close()
+        print("Pesan RS")
+        return
+        
+    def to_suhu_harian(self):
+        # Navigate to suhu harian page
+        from Suhu_Klien import Ui_SuhuKlienWindow
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_SuhuKlienWindow()
+        self.ui.setupUi(self.window, self.ID_Pengguna)
+        self.window.show()
+        self.HomeKlienWindow.close()
+        print("Suhu Harian")
+        return
+                
+    def to_Klien_Pesanan(self):
+        # Navigate to update laporan page
+        from Pesanan_Klien import Ui_PesananKlienWindow
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_PesananKlienWindow()
+        self.ui.setupUi(self.window, self.ID_Pengguna)
+        self.window.show()
+        self.HomeKlienWindow.close()
+        print("Klien_Pesanan ")
+        return
 
 if __name__ == "__main__":
     import sys
+    InitDB()
     app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
+    HomeKlienWindow = QtWidgets.QMainWindow()
+    ui = Ui_HomeKlienWindow()
+    ui.setupUi(HomeKlienWindow)
+    HomeKlienWindow.show()
     sys.exit(app.exec_())

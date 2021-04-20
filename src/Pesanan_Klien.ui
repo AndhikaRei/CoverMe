@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>900</width>
+    <width>898</width>
     <height>600</height>
    </rect>
   </property>
@@ -531,223 +531,11 @@ color: rgb(150, 150, 150);</string>
      <string>berada dalam rentang bahaya!</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="button_action_pesanan">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>1010</x>
-      <y>780</y>
-      <width>211</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Montserrat SemiBold</family>
-      <pointsize>14</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(218, 114, 60);</string>
-    </property>
-    <property name="text">
-     <string>Selesaikan Pesanan</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_status">
-    <property name="geometry">
-     <rect>
-      <x>1010</x>
-      <y>740</y>
-      <width>111</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Montserrat</family>
-      <pointsize>10</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(145, 9, 30);</string>
-    </property>
-    <property name="text">
-     <string>Status                    :</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-    </property>
-   </widget>
-   <widget class="QLabel" name="img_rs">
-    <property name="geometry">
-     <rect>
-      <x>600</x>
-      <y>600</y>
-      <width>391</width>
-      <height>261</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap>../img/rs.jpg</pixmap>
-    </property>
-    <property name="scaledContents">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QLabel" name="tanggal_pesan">
-    <property name="geometry">
-     <rect>
-      <x>1120</x>
-      <y>700</y>
-      <width>111</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Montserrat</family>
-      <pointsize>10</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(145, 9, 30);</string>
-    </property>
-    <property name="text">
-     <string>18 April 2001</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-    </property>
-   </widget>
-   <widget class="QLabel" name="harga">
-    <property name="geometry">
-     <rect>
-      <x>1120</x>
-      <y>720</y>
-      <width>111</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Montserrat</family>
-      <pointsize>10</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(145, 9, 30);</string>
-    </property>
-    <property name="text">
-     <string>Rp 50000</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-    </property>
-   </widget>
-   <widget class="QLabel" name="nama_rs">
-    <property name="geometry">
-     <rect>
-      <x>990</x>
-      <y>660</y>
-      <width>241</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Montserrat ExtraBold</family>
-      <pointsize>14</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(145, 9, 30);</string>
-    </property>
-    <property name="text">
-     <string>RS Borromeus</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_tanggal_pesan">
-    <property name="geometry">
-     <rect>
-      <x>1010</x>
-      <y>700</y>
-      <width>111</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Montserrat</family>
-      <pointsize>10</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(145, 9, 30);</string>
-    </property>
-    <property name="text">
-     <string>Tanggal Pesan :</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_harga">
-    <property name="geometry">
-     <rect>
-      <x>1010</x>
-      <y>720</y>
-      <width>111</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Montserrat</family>
-      <pointsize>10</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(145, 9, 30);</string>
-    </property>
-    <property name="text">
-     <string>Harga                    :</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-    </property>
-   </widget>
    <widget class="QLabel" name="background_pesanan">
     <property name="geometry">
      <rect>
-      <x>780</x>
-      <y>550</y>
+      <x>430</x>
+      <y>220</y>
       <width>451</width>
       <height>361</height>
      </rect>
@@ -761,34 +549,7 @@ border-radius:15px;
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="status_name">
-    <property name="geometry">
-     <rect>
-      <x>1120</x>
-      <y>740</y>
-      <width>111</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Montserrat</family>
-      <pointsize>10</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(145, 9, 30);</string>
-    </property>
-    <property name="text">
-     <string>Pending</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-    </property>
-   </widget>
-   <widget class="QLabel" name="img_rs_2">
+   <widget class="QLabel" name="img_rs">
     <property name="geometry">
      <rect>
       <x>240</x>
@@ -807,25 +568,7 @@ border-radius:15px;
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="background_pesanan_2">
-    <property name="geometry">
-     <rect>
-      <x>420</x>
-      <y>230</y>
-      <width>451</width>
-      <height>361</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(251, 242, 215);
-border-radius:15px;
-</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="button_action_pesanan_2">
+   <widget class="QPushButton" name="button_action_pesanan">
     <property name="enabled">
      <bool>true</bool>
     </property>
@@ -856,7 +599,7 @@ background-color: rgb(218, 114, 60);</string>
      <string>Selesaikan Pesanan</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_status_2">
+   <widget class="QLabel" name="label_status">
     <property name="geometry">
      <rect>
       <x>650</x>
@@ -883,7 +626,7 @@ background-color: rgb(218, 114, 60);</string>
      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="tanggal_pesan_2">
+   <widget class="QLabel" name="tanggal_pesan">
     <property name="geometry">
      <rect>
       <x>760</x>
@@ -937,7 +680,7 @@ background-color: rgb(218, 114, 60);</string>
      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="nama_rs_2">
+   <widget class="QLabel" name="nama_rs">
     <property name="geometry">
      <rect>
       <x>630</x>
@@ -964,7 +707,7 @@ background-color: rgb(218, 114, 60);</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="label_tanggal_pesan_2">
+   <widget class="QLabel" name="label_tanggal_pesan">
     <property name="geometry">
      <rect>
       <x>650</x>
@@ -991,7 +734,7 @@ background-color: rgb(218, 114, 60);</string>
      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="label_harga_2">
+   <widget class="QLabel" name="label_harga">
     <property name="geometry">
      <rect>
       <x>650</x>
@@ -1018,7 +761,7 @@ background-color: rgb(218, 114, 60);</string>
      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="status_name_2">
+   <widget class="QLabel" name="status_name">
     <property name="geometry">
      <rect>
       <x>760</x>
@@ -1343,26 +1086,16 @@ color: rgb(150, 150, 150);</string>
    <zorder>label_no_rs1</zorder>
    <zorder>label_no_rs2</zorder>
    <zorder>label_no_rs3</zorder>
+   <zorder>background_pesanan</zorder>
+   <zorder>img_rs</zorder>
    <zorder>button_action_pesanan</zorder>
    <zorder>label_status</zorder>
-   <zorder>img_rs</zorder>
    <zorder>tanggal_pesan</zorder>
-   <zorder>harga</zorder>
+   <zorder>harga_2</zorder>
    <zorder>nama_rs</zorder>
    <zorder>label_tanggal_pesan</zorder>
    <zorder>label_harga</zorder>
-   <zorder>background_pesanan</zorder>
    <zorder>status_name</zorder>
-   <zorder>background_pesanan_2</zorder>
-   <zorder>img_rs_2</zorder>
-   <zorder>button_action_pesanan_2</zorder>
-   <zorder>label_status_2</zorder>
-   <zorder>tanggal_pesan_2</zorder>
-   <zorder>harga_2</zorder>
-   <zorder>nama_rs_2</zorder>
-   <zorder>label_tanggal_pesan_2</zorder>
-   <zorder>label_harga_2</zorder>
-   <zorder>status_name_2</zorder>
    <zorder>label_pending</zorder>
    <zorder>icon_pending2</zorder>
    <zorder>icon_pending1</zorder>
