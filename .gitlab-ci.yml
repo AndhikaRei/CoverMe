@@ -17,13 +17,12 @@ test:
   image: python:3.7
   stage: test
   only:
-    ['master']
+    ['develop']
   when:
     on_success
   script: 
     - pip install pytest
     - pip install bcrypt
     - pip install mysql-connector-python
-    - pytest test_rs.py --verbose --color=yes
-    - pytest test_login_register.p --verbose --color=yes
+    - pytest src/test_rs.py --verbose --color=yes
 
