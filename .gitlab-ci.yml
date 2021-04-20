@@ -9,7 +9,7 @@ variables:
 connect:
   image: mysql
   script:
-  - echo "SELECT 'OK';" | mysql --user=root --password="$MYSQL_ROOT_PASSWORD" --host="$MYSQL_HOST" "$MYSQL_DATABASE"
+  - echo "SELECT 'OK';" | mysql --user=root --password="" --host="$MYSQL_HOST" "$MYSQL_DATABASE"
 
 stages: 
   ['test','deliver']
@@ -22,8 +22,7 @@ test:
     on_success
   script: 
     - pip install pytest
-    - pip install tornado
-    - pip install traitlets
+    - pip install pytest-dependency
     - pip install bcrypt
     - pip install mysql-connector-python
     - pytest src/test_rs.py --verbose --color=yes
