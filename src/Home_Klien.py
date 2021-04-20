@@ -11,8 +11,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from update_laporan import *
 from autentikasi import *
-from Klien_PesanRS import *
-from Klien_Suhu import *
 from Init_DBData import *
 from datetime import date
 
