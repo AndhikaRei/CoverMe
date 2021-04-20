@@ -103,7 +103,7 @@ def test_pesanan_reject():
 
 def test_pesanan_batal_or_bayar():
     """
-    Test mengubah status pesanan menjadi -2 (rej)
+    Test mengubah status pesanan menjadi -2
     """
     result = get_pesanan_ongoing(cursor,DB_NAME, 1)
     ID_Pesanan = result[1][0][4]

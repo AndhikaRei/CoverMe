@@ -31,6 +31,8 @@ def InitDB():
     # Mengisi/Modifikasi data 
     add_new_rs(db,cursor,DB_NAME,("RS CEMPAKA", 50000, 2))
     add_new_user(db, cursor, DB_NAME, ["Azhar", "azhar", "4200", "azhar@gmail.com", "Bandung", "2001-04-20", "08822313412"])
+    add_new_user(db, cursor, DB_NAME, ["Azhar3", "azhar3", "42003", "azhar3@gmail.com", "Bandung", "2001-04-20", "08822313412"])
+    add_new_user(db, cursor, DB_NAME, ["Azhar5", "azhar5", "42005", "azhar5@gmail.com", "Bandung", "2001-04-20", "08822313412"])
     add_new_admin(db, cursor, DB_NAME, ["Admin_Azhar", "azhar2", "42002", "azhar2@gmail.com", "Bandung", "2001-04-20", "08822313412","Admin"])
     set_kasus_positif(db,cursor,DB_NAME,150)
     set_pasien_sembuh(db,cursor,DB_NAME,100)

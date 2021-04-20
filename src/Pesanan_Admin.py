@@ -356,11 +356,16 @@ class Ui_PesananAdminWindow(object):
     def acceptPesanan(self):
         try:
             ID_Pesanan = int(self.tabel_pesan.selectedItems()[0].text())
-            respon = ubah_status(self.db,self.cursor,self.DB_NAME,ID_Pesanan,1)
-            nama_RS = self.tabel_pesan.selectedItems()[4].text()
-            tambah_pasien(self.db,self.cursor,self.DB_NAME, nama_RS)
-            print(respon)
-            self.loadTable()
+            pasien = self.tabel_pesan.selectedItems()[5].text().split("/")
+            print(pasien)
+            if(pasien[0] == pasien[1]):
+                self.showAlert("RS penuh")
+            else:
+                respon = ubah_status(self.db,self.cursor,self.DB_NAME,ID_Pesanan,1)
+                nama_RS = self.tabel_pesan.selectedItems()[4].text()
+                tambah_pasien(self.db,self.cursor,self.DB_NAME, nama_RS)
+                print(respon)
+                self.loadTable()
         except:
             self.showAlert("Belum memilih pesanan")
 
