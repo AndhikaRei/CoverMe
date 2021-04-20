@@ -87,7 +87,7 @@ def test_get_kasus_positif():
     Test get kasus positif
     """
     result = set_kasus_positif(db, cursor, DB_NAME, 100)
-    result2 = get_kasus_positif(db, cursor, DB_NAME, 100)[1][0][0]
+    result2 = get_kasus_positif(cursor, DB_NAME)[1][0][0]
     assert (result2 == 100)
 
 def test_get_pasien_sembuh():
@@ -95,7 +95,7 @@ def test_get_pasien_sembuh():
     Test get pasien sembuh
     """
     result = set_pasien_sembuh(db, cursor, DB_NAME, 100)
-    result2 = get_pasien_sembuh(db, cursor, DB_NAME, 100)[1][0][0]
+    result2 = get_pasien_sembuh(cursor, DB_NAME)[1][0][0]
     assert (result2 == 100)
 
 def test_get_pasien_meninggal():
@@ -103,5 +103,5 @@ def test_get_pasien_meninggal():
     Test get pasien meninggal
     """
     result = set_pasien_meninggal(db, cursor, DB_NAME, 100)
-    result2 = get_pasien_meninggal(db, cursor, DB_NAME, 100)[1][0][0]
+    result2 = get_pasien_meninggal(cursor, DB_NAME)[1][0][0]
     assert (result2 == 100)
