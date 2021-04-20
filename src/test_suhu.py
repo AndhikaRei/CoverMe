@@ -32,7 +32,21 @@ def test_input_suhu_positif_not_valid():
     """
     Test cek suhu harian klien dengan input yang tidak valid
     """
-    result = set_riwayat_by_id(db, cursor, DB_NAME, 1, 38)
+    result = set_riwayat_by_id(db, cursor, DB_NAME, 1, 46)
+    assert (result[0] == 0)
+
+def test_input_suhu_negatif():
+    """
+    Test cek suhu harian klien dengan input suhu negatif
+    """
+    result = set_riwayat_by_id(db, cursor, DB_NAME, 1, -2)
+    assert (result[0] == 0)
+
+def test_input_suhu_string():
+    """
+    Test cek suhu harian klien dengan input string
+    """
+    result = set_riwayat_by_id(db, cursor, DB_NAME, 1, "hehehehe")
     assert (result[0] == 0)
 
 def test_input_suhu_aman():
