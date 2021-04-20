@@ -23,5 +23,5 @@ test:
   script: 
     - pip install pytest
     - pip install mysql-connector-python
-    - pytest test_rs.py --verbose --color=yes
+    - pytest src/test_rs.py --verbose --color=yes
 
