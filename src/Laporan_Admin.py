@@ -10,8 +10,6 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from update_laporan import *
-from Admin_RS import *
-from Admin_Home import *
 from autentikasi import *
 from Init_DBData import *
 from datetime import date

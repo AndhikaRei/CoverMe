@@ -12,12 +12,7 @@ import mysql.connector
 import re
 from PyQt5 import QtCore, QtGui, QtWidgets
 from autentikasi import *
-from Klien_PesanRS import *
-from Admin_RS import *
 from Init_DBData import *
-
-from PyQt5 import QtCore, QtGui, QtWidgets
-
 
 class Ui_LoginScreen(object):
     def setupUi(self, LoginScreen):

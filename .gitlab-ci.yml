@@ -3,13 +3,15 @@ services:
 
 variables:
   MYSQL_DATABASE: Cover_Me
-  MYSQL_ROOT_PASSWORD: mysql
-  MYSQL_HOST: mysql
+  MYSQL_USER: root
+  MYSQL_PASSWORD: root
+  MYSQL_HOST: localhost
+  MYSQL_PORT : 3306
 
 connect:
   image: mysql
   script:
-  - echo "SELECT 'OK';" | mysql --user=root --password="$MYSQL_ROOT_PASSWORD" --host=mysql "$MYSQL_DATABASE"
+  - echo "SELECT 'OK';" | mysql --user="$MYSQL_USER" --password="$MYSQL_PASSWORD" --host="$MYSQL_HOST" --port="$MYSQL_PORT" "$MYSQL_DATABASE"
 
 stages: 
   ['test','deliver']
@@ -22,6 +24,11 @@ test:
     on_success
   script: 
     - pip install pytest
+    - pip install pytest-dependency
+    - pip install jupyter_core
+    - pip install jupyter_client
+    - pip install bcrypt
     - pip install mysql-connector-python
     - pytest src/test_rs.py --verbose --color=yes
+    - pytest src/test_login_register.py --verbose --color=yes
 

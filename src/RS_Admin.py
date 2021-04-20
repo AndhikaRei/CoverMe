@@ -12,8 +12,6 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from rumah_sakit import *
 import mysql.connector
 from autentikasi import *
-from ui_login import *
-from Admin_Home import *
 from Init_DBData import *
 from datetime import date
 

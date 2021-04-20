@@ -14,10 +14,7 @@ from pesanan import *
 from rumah_sakit import *
 from suhu_harian import *
 import mysql.connector
-from ui_login import *
-from Admin_Home import *
-from Admin_RS import *
-from Admin_UpdateLaporan import *
+from Init_DBData import *
 from datetime import date
 
 class Ui_PesananAdminWindow(object):

@@ -10,13 +10,9 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from autentikasi import *
-from PyQt5 import QtCore, QtGui, QtWidgets
 from pesanan import *
 from rumah_sakit import *
 import mysql.connector
-from ui_login import *
-from Klien_Home import *
-from Klien_PesanRS import *
 from Init_DBData import *
 from datetime import date
 

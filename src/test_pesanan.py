@@ -7,8 +7,8 @@ from pesanan import *
 # Test Database SQL
 config = {
     "user": "root",
-    "password": "mysql",
-    "host": "mysql"
+    "password": "root",
+    "host": "localhost"
 }
 
 DB_NAME = "Cover_Me"
