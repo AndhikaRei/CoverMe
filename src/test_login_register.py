@@ -25,8 +25,8 @@ def test_check_encrypt(password, encrypt):
     
 # Test Database SQL
 config = {
-        "user": "mysql",
-        "password": "mysql",
+        "user": "root",
+        "password": "root",
         "host": "localhost"
     }
 
