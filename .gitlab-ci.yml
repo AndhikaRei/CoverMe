@@ -3,13 +3,15 @@ services:
 
 variables:
   MYSQL_DATABASE: Cover_Me
-  MYSQL_ROOT_PASSWORD: 4200
+  MYSQL_USER: root
+  MYSQL_PASSWORD: root
   MYSQL_HOST: localhost
+  MYSQL_PORT : 3306
 
 connect:
   image: mysql
   script:
-  - echo "SELECT 'OK';" | mysql --user=root --password="$MYSQL_ROOT_PASSWORD" --host="$MYSQL_HOST" "$MYSQL_DATABASE" -p 3306:3306
+  - echo "SELECT 'OK';" | mysql --user="$MYSQL_USER" --password="$MYSQL_PASSWORD" --host="$MYSQL_HOST" --port="$MYSQL_PORT" "$MYSQL_DATABASE"
 
 stages: 
   ['test','deliver']
