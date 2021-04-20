@@ -1,4 +1,3 @@
-# import pytest
 import mysql.connector
 from autentikasi import *
 from suhu_harian import *
