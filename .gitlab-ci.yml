@@ -26,6 +26,7 @@ test:
     - pip install pytest
     - pip install pytest-dependency
     - pip install jupyter_core
+    - pip install jupyter_client
     - pip install bcrypt
     - pip install mysql-connector-python
     - pytest src/test_rs.py --verbose --color=yes
