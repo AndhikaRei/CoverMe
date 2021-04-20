@@ -1,0 +1,27 @@
+services:
+- mysql
+
+variables:
+  MYSQL_DATABASE: Cover_Me
+  MYSQL_ROOT_PASSWORD: mysql
+  MYSQL_HOST: mysql
+
+connect:
+  image: mysql
+  script:
+  - echo "SELECT 'OK';" | mysql --user=root --password="$MYSQL_ROOT_PASSWORD" --host=mysql "$MYSQL_DATABASE"
+
+stages: 
+  ['test','deliver']
+test:
+  image: python:3.7
+  stage: test
+  only:
+    ['master']
+  when:
+    on_success
+  script: 
+    - pip install pytest
+    - pip install mysql-connector-python
+    - pytest test_rs.py --verbose --color=yes
+

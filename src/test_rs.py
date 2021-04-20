@@ -5,8 +5,8 @@ from rumah_sakit import *
 # Test Database SQL
 config = {
     "user": "root",
-    "password": "",
-    "host": "localhost"
+    "password": "mysql",
+    "host": "mysql"
 }
 
 DB_NAME = "Cover_Me"
@@ -24,7 +24,6 @@ create_table_rs(cursor,DB_NAME)
 def test_input_rs_benar():
     """
     Test menambah rumah sakit baru yang datanya valid
-    Apabila sudah ada duplikat di lokal maka test akan menjadi tidak valid
     """
     val = ("RS CEMPAKA8", 50000, 2)
     result = add_new_rs(db,cursor,DB_NAME,val)
@@ -61,12 +60,3 @@ def test_tambah_pasien():
     cursor.execute(sql)
     totPasienBaru = cursor.fetchone()[0]
     assert totPasienBaru == totPasienLama+1
-
-def test_all():
-    test_input_rs_benar()
-    test_input_rs_salah()
-    test_kurangi_pasien()
-    test_tambah_pasien()
-    print("Semua test sukses dilewati")
-
-test_all()
