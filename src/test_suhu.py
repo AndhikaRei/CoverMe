@@ -8,7 +8,6 @@ config = {
     "user": "root",
     "password": "root",
     "host": "localhost",
-    'port' : '3307'
 }
 
 DB_NAME = "Cover_Me"
