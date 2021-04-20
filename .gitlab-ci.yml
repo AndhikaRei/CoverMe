@@ -32,4 +32,5 @@ test:
     - pytest src/test_rs.py --verbose --color=yes
     - pytest src/test_login_register.py --verbose --color=yes
     - pytest src/test_pesanan.py --verbose --color=yes
+    - pytest src/test_suhu.py --verbose --color=yes
 
