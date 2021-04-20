@@ -1,0 +1,739 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>899</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>900</width>
+      <height>600</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../img/background-1.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="login_message">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>130</y>
+      <width>341</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Montserrat ExtraBold</family>
+      <pointsize>28</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(251, 242, 215);
+background-color: rgb(144, 15, 32);</string>
+    </property>
+    <property name="text">
+     <string>Welcome back</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QStackedWidget" name="stackedWidget">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>90</y>
+      <width>356</width>
+      <height>486</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="font">
+     <font>
+      <family>Montserrat</family>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="page">
+     <widget class="QLabel" name="label_login">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>30</y>
+        <width>131</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Montserrat SemiBold</family>
+        <pointsize>18</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(144, 15, 32);</string>
+      </property>
+      <property name="text">
+       <string>LOGIN</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_username">
+      <property name="geometry">
+       <rect>
+        <x>25</x>
+        <y>110</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Montserrat</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(144, 15, 32);</string>
+      </property>
+      <property name="text">
+       <string>Username</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_password">
+      <property name="geometry">
+       <rect>
+        <x>25</x>
+        <y>150</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Montserrat</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(144, 15, 32);</string>
+      </property>
+      <property name="text">
+       <string>Password</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="box_username">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>110</y>
+        <width>181</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="box_password">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>150</y>
+        <width>181</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">lineedit-password-character: 9679</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="login_Button">
+      <property name="geometry">
+       <rect>
+        <x>25</x>
+        <y>195</y>
+        <width>276</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Montserrat SemiBold</family>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(144, 15, 32);
+color: rgb(251, 242, 215);</string>
+      </property>
+      <property name="text">
+       <string>Login</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_1">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>245</y>
+        <width>141</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Montserrat SemiBold</family>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Belum punya akun?</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="frame_login">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>356</width>
+        <height>376</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(251, 242, 215);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="button_toRegister">
+      <property name="geometry">
+       <rect>
+        <x>186</x>
+        <y>242</y>
+        <width>71</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Montserrat SemiBold</family>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(144, 15, 32);</string>
+      </property>
+      <property name="text">
+       <string>Register</string>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <zorder>frame_login</zorder>
+     <zorder>label_login</zorder>
+     <zorder>label_username</zorder>
+     <zorder>label_password</zorder>
+     <zorder>box_password</zorder>
+     <zorder>box_username</zorder>
+     <zorder>login_Button</zorder>
+     <zorder>label_1</zorder>
+     <zorder>button_toRegister</zorder>
+    </widget>
+    <widget class="QWidget" name="page_2">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Ignored" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>100</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <widget class="QLabel" name="label_login_2">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>25</y>
+        <width>111</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Montserrat</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>REGISTER</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="frame_login_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>356</width>
+        <height>486</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(251, 242, 215);
+color: rgb(144, 15, 32);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_login_3">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>30</y>
+        <width>131</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Montserrat SemiBold</family>
+        <pointsize>18</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(144, 15, 32);</string>
+      </property>
+      <property name="text">
+       <string>REGISTER</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_password_2">
+      <property name="geometry">
+       <rect>
+        <x>25</x>
+        <y>165</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Montserrat</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(137, 14, 30);</string>
+      </property>
+      <property name="text">
+       <string>Password</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="box_telepon">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>285</y>
+        <width>191</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Montserrat</family>
+       </font>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="box_alamat">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>205</y>
+        <width>191</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Montserrat</family>
+       </font>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_email">
+      <property name="geometry">
+       <rect>
+        <x>25</x>
+        <y>325</y>
+        <width>106</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Montserrat</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(137, 14, 30);</string>
+      </property>
+      <property name="text">
+       <string>Email</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="box_password_2">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>165</y>
+        <width>191</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Montserrat</family>
+       </font>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_alamat">
+      <property name="geometry">
+       <rect>
+        <x>25</x>
+        <y>205</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Montserrat</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(137, 14, 30);</string>
+      </property>
+      <property name="text">
+       <string>Alamat</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_username_2">
+      <property name="geometry">
+       <rect>
+        <x>25</x>
+        <y>125</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Montserrat</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(137, 14, 30);</string>
+      </property>
+      <property name="text">
+       <string>Username</string>
+      </property>
+     </widget>
+     <widget class="QDateEdit" name="dateEdit">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>245</y>
+        <width>191</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Montserrat</family>
+       </font>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>76</x>
+        <y>420</y>
+        <width>141</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Montserrat SemiBold</family>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Sudah punya akun?</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="button_register">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>370</y>
+        <width>311</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Montserrat SemiBold</family>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(144, 15, 32);
+color: rgb(251, 242, 215);</string>
+      </property>
+      <property name="text">
+       <string>Register</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="box_email">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>325</y>
+        <width>191</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Montserrat</family>
+       </font>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="box_nama">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>85</y>
+        <width>191</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Montserrat</family>
+       </font>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_nama">
+      <property name="geometry">
+       <rect>
+        <x>25</x>
+        <y>85</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Montserrat</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(144, 15, 32);</string>
+      </property>
+      <property name="text">
+       <string>Nama</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_tanggal_lahir">
+      <property name="geometry">
+       <rect>
+        <x>25</x>
+        <y>245</y>
+        <width>106</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Montserrat</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(137, 14, 30);</string>
+      </property>
+      <property name="text">
+       <string>Tanggal Lahir</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_telepon">
+      <property name="geometry">
+       <rect>
+        <x>25</x>
+        <y>285</y>
+        <width>106</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Montserrat</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(137, 14, 30);</string>
+      </property>
+      <property name="text">
+       <string>Telepon</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="box_username_2">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>125</y>
+        <width>191</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Montserrat</family>
+       </font>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="button_toLogin">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>417</y>
+        <width>51</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Montserrat SemiBold</family>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(144, 15, 32);</string>
+      </property>
+      <property name="text">
+       <string>Login</string>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="register_message">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>130</y>
+      <width>341</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Montserrat ExtraBold</family>
+      <pointsize>22</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(251, 242, 215);
+background-color: rgb(144, 15, 32);</string>
+    </property>
+    <property name="text">
+     <string>Welcome to CoverME</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <zorder>label</zorder>
+   <zorder>stackedWidget</zorder>
+   <zorder>register_message</zorder>
+   <zorder>login_message</zorder>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
