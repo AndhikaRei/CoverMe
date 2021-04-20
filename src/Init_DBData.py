@@ -5,7 +5,7 @@ from update_laporan import *
 
 
 def get_config():
-    return  { 'user': 'root', 'password': 'root', 'host': 'localhost','port' : '3307'}
+    return  { 'user': 'root', 'password': 'root', 'host': 'localhost','port' : '3306'}
 def get_DB_NAME():
     return'Cover_Me'
 
@@ -30,8 +30,8 @@ def InitDB():
 
     # Mengisi/Modifikasi data 
     add_new_rs(db,cursor,DB_NAME,("RS CEMPAKA", 50000, 2))
-    add_new_user(db, cursor, DB_NAME, ["Azhar", "azhar", "4200", "Gmail@azhar", "Bandung", "2001-04-20", "08822313412"])
-    add_new_admin(db, cursor, DB_NAME, ["Azhar2", "azhar2", "42002", "Gmail@azhar2", "Bandung", "2001-04-20", "08822313412","Admin"])
+    add_new_user(db, cursor, DB_NAME, ["Azhar", "azhar", "4200", "azhar@gmail.com", "Bandung", "2001-04-20", "08822313412"])
+    add_new_admin(db, cursor, DB_NAME, ["Admin_Azhar", "azhar2", "42002", "azhar2@gmail.com", "Bandung", "2001-04-20", "08822313412","Admin"])
     set_kasus_positif(db,cursor,DB_NAME,150)
     set_pasien_sembuh(db,cursor,DB_NAME,100)
     set_pasien_meninggal(db,cursor,DB_NAME,50)
