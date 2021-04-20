@@ -17,7 +17,7 @@ test:
   image: python:3.7
   stage: test
   only:
-    ['master']
+    ['develop']
   when:
     on_success
   script: 
