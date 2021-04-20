@@ -406,7 +406,7 @@ class Ui_LoginScreen(object):
         result = get_user_id(self.cursor,self.DB_NAME, val)
         
         if result[0] == 1:
-            self.showSucc("Login berhasil")
+            # self.showSucc("Login berhasil")
             ID_Pengguna = result[1]
             Role = get_role(self.cursor,self.DB_NAME, ID_Pengguna)[1]
             print(Role)
