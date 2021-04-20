@@ -5,7 +5,7 @@ from update_laporan import *
 
 
 def get_config():
-    return  { 'user': 'root', 'password': 'root', 'host': 'localhost','port' : '3307'}
+    return  { 'user': 'root', 'password': '', 'host': 'localhost'}
 def get_DB_NAME():
     return'Cover_Me'
 
