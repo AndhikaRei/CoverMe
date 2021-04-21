@@ -120,3 +120,13 @@ python3 Login_User.py
 |   | Kasus_Positif | int |
 |   | Pasien_Sembuh | int |
 |   | Pasien_Meninggal | int |
+
+## Credit 
+- http://cover-me.me/
+- https://ec.europa.eu/jrc/en/news/coronavirus-pandemic-highlights-vulnerability-migrant-workers-eu
+- https://www.iconsdb.com/
+- https://pngimg.com/image/15980
+- https://rsborromeus.com/gallery-hospital/eb/
+- https://unblast.com/free-coronavirus-pandemic-illustration-ai/
+- https://colorhunt.co/palette/257985
+- https://www.kindpng.com/imgv/iThJmoo_white-gray-circle-avatar-png-transparent-png/
