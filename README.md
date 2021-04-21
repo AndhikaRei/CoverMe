@@ -60,7 +60,7 @@ python3 Login_User.py
 ![Screenshot](doc/PesananAdminWindow.PNG)
 ![Screenshot](doc/HomeKlienWindow.PNG)
 ### Screen Capture Modul 15 dan 16
-![Screenshot](doc/PesananKlienWindow-Tidak Ada Pesanan.PNG)
+![Screenshot](doc/PesananKlienWindow-TidakAdaPesanan.PNG)
 ![Screenshot](doc/PesananKlienWindow-Pending.PNG)
 ![Screenshot](doc/PesananKlienWindow-Accepted.PNG)
 ![Screenshot](doc/PesananKlienWindow-Rejected.PNG)
