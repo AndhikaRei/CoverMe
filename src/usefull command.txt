@@ -1,0 +1,9 @@
+{ install command }
+pip install pyqt5
+pip install pyqt5-tools
+pip install mysql-connector-python
+pip install pytest
+pip install bcrypt
+
+{ command convert dari .ui ke .py , hati hati dengan command ini karena akan menimpa filenya }
+pyuic5 -x test.ui -o test.py

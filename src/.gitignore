@@ -1,0 +1,5 @@
+__pycache__/
+virt/
+*.exe
+designer.exe - Shortcut.lnk
+.vscode
