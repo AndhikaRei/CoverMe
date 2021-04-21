@@ -1,8 +1,13 @@
 # IF2250-2021-K01-3-CoverMe
-
 Tugas Besar IF2250 - Rekayasa Perangkat Lunak
+## Author
+- Muhammad Azhar Faturahman (13519020)
+- Gde Anantha Priharsena (13519026)
+- Reihan Andhika Putra (13519043)
+- Kinantan Arya Bagaspati (13519044)
+
 ## A. Penjelasan Singkat
-Perangkat lunak Cover Me adalah suatu aplikasi berbasis desktop yang berfungsi untuk memesan rumah sakit secara daring. Selain itu, perangkat lunak Cover Me juga dapat menampilkan laporan harian Covid-19 dan juga mendeteksi kesehatan tubuh pengguna berdasarkan suhu tubuhnya. Perangkat lunak ini dibangun menggunakan bahasa pemograman Python dengan library GUI pyqt5
+Perangkat lunak Cover Me adalah suatu aplikasi berbasis desktop yang berfungsi untuk memesan rumah sakit secara daring. Selain itu, perangkat lunak ini juga dapat menampilkan laporan harian Covid-19 dan juga mendeteksi kesehatan tubuh pengguna berdasarkan suhu tubuhnya. Perangkat lunak ini dibangun menggunakan bahasa pemograman Python dengan library GUI pyqt5
 ## B. Cara Menjalankan
 1. Install server MySQL. Anda juga dapat mendownload MySQL workbench untuk mempermudah melihat isi database. Link download ada di https://dev.mysql.com/downloads/installer/.
 2. Install beberapa module python dengan command dibawah Ini
