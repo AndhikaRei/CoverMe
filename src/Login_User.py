@@ -365,12 +365,14 @@ class Ui_LoginScreen(object):
     def showAlert(self,err):
         msg = QtWidgets.QMessageBox()
         msg.setIcon(QtWidgets.QMessageBox.Critical)
+        msg.setWindowTitle("Peringatan")
         msg.setText(err)
         x = msg.exec_()
 
     def showSucc(self,succ):
         msg = QtWidgets.QMessageBox()
         msg.setIcon(QtWidgets.QMessageBox.Information)
+        msg.setWindowTitle("Berhasil")
         msg.setText(succ)
         x = msg.exec_()
     

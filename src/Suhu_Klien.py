@@ -645,12 +645,14 @@ class Ui_SuhuKlienWindow(object):
     def showAlert(self,err):
         # Menampilkan pesan kesalahan
         msg = QtWidgets.QMessageBox()
+        msg.setWindowTitle("Peringatan")
         msg.setIcon(QtWidgets.QMessageBox.Critical)
         msg.setText(err)
         x = msg.exec_()
 
     def showSucc(self,succ):
         msg = QtWidgets.QMessageBox()
+        msg.setWindowTitle("Berhasil")
         msg.setIcon(QtWidgets.QMessageBox.Information)
         msg.setText(succ)
         x = msg.exec_()

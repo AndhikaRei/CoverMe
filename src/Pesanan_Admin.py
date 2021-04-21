@@ -349,6 +349,7 @@ class Ui_PesananAdminWindow(object):
     def showAlert(self,err):
         # Menampilkan pesan kesalahan
         msg = QtWidgets.QMessageBox()
+        msg.setWindowTitle("Peringatan")
         msg.setIcon(QtWidgets.QMessageBox.Critical)
         msg.setText(err)
         x = msg.exec_()
