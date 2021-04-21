@@ -117,7 +117,7 @@ def get_all_pesanan_ongoing(cursor,DB_NAME):
     # Return pesan sukses/error beserta kodenya
     cursor.execute("USE {}".format(DB_NAME))
     try:
-        sql = ("SELECT iD_Pesanan, Username, Riwayat, Tanggal_Pesanan, Nama_RS, Kapasitas, Jumlah_Pasien FROM user NATURAL JOIN klien NATURAL JOIN pesanan NATURAL JOIN rumah_sakit WHERE Status_Pesanan = 0 ORDER BY Riwayat DESC")
+        sql = ("SELECT ID_Pesanan, Username, Riwayat, Tanggal_Pesanan, Nama_RS, Kapasitas, Jumlah_Pasien FROM user NATURAL JOIN klien NATURAL JOIN pesanan NATURAL JOIN rumah_sakit WHERE Status_Pesanan = 0 ORDER BY Riwayat DESC, Tanggal_Pesanan ASC")
         cursor.execute(sql)
         result = cursor.fetchall()
         return [1,result]
