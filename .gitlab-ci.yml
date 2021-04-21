@@ -14,7 +14,7 @@ connect:
   - echo "SELECT 'OK';" | mysql --user="$MYSQL_USER" --password="$MYSQL_PASSWORD" --host="$MYSQL_HOST" --port="$MYSQL_PORT" "$MYSQL_DATABASE"
 
 stages: 
-  ['test','deliver']
+  ['test']
 test:
   image: python:3.7
   stage: test
@@ -34,4 +34,3 @@ test:
     - pytest src/test_pesanan.py --verbose --color=yes
     - pytest src/test_suhu.py --verbose --color=yes
     - pytest src/test_laporan.py --verbose --color=yes
-

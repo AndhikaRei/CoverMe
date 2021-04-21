@@ -4,7 +4,7 @@ Tugas Besar IF2250 - Rekayasa Perangkat Lunak
 ## A. Penjelasan Singkat
 Perangkat lunak Cover Me adalah suatu aplikasi berbasis desktop yang berfungsi untuk memesan rumah sakit secara daring. Selain itu, perangkat lunak Cover Me juga dapat menampilkan laporan harian Covid-19 dan juga mendeteksi kesehatan tubuh pengguna berdasarkan suhu tubuhnya. Perangkat lunak ini dibangun menggunakan bahasa pemograman Python dengan library GUI pyqt5
 ## B. Cara Menjalankan
-1. Install server MySQL. Anda juga dapat mendownload MySQL workbench di https://dev.mysql.com/downloads/installer/.
+1. Install server MySQL. Anda juga dapat mendownload MySQL workbench untuk mempermudah melihat isi database. Link download ada di https://dev.mysql.com/downloads/installer/.
 2. Install beberapa module python dengan command dibawah Ini
 ```
 pip install pyqt5
@@ -14,7 +14,7 @@ pip install pytest
 pip install bcrypt
 ```
 3. Clone/Download repository ini 
-4. Ubahlah konfigurasi database yang ada di file src/Init_DBData.py. Konfigurasi yang dirubah adalah isi dari hasil return fungsi get_config()
+4. Ubahlah konfigurasi database yang ada di file src/Init_DBData.py. Konfigurasi yang dirubah adalah isi dari hasil return fungsi get_config(). Sesuaikan password, port, dan konfigurasi lainnya sesuai pada saat menginstall server MySQL 
 5. Masuk ke directory src dan jalankan command
 ```
 python Login_User.py 

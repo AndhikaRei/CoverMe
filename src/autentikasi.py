@@ -1,4 +1,3 @@
-
 import mysql.connector
 from encryption import encrypt_password, check_password
 
